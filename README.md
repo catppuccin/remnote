@@ -1,7 +1,7 @@
 <h3 align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
-	Catppuccin for <a href="https://remnote.com">Remnote (WIP)</a>
+	Catppuccin for <a href="https://remnote.com">Remnote</a>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
@@ -44,6 +44,7 @@
     2. [🪴 Frappé](https://github.com/catppuccin/remnote/raw/main/frapp%C3%A9/theme.css)
     3. [🌺 Macchiato](https://github.com/catppuccin/remnote/raw/main/macchiato/theme.css)
     4. [🌿 Mocha](https://github.com/catppuccin/remnote/raw/main/mocha/theme.css)
+5. ⚠ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
 
 > If custom CSS is preventing the loading of remnote, visit <http://www.remnote.com/notes?disableCustomCSS> ([From CSS Docs](https://plugins.remnote.com/custom-css))
 
