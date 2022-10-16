@@ -25,4 +25,187 @@
 	--base: #eff1f5;
 	--mantle: #e6e9ef;
 	--crust: #dce0e8;
+	/* convert the hexadecimal values above into rgb values */
+	--rosewater-rgb: 220, 138, 120;
+	--flamingo-rgb: 221, 120, 120;
+	--pink-rgb: 234, 118, 203;
+	--mauve-rgb: 136, 57, 239;
+	--red-rgb: 210, 15, 57;
+	--maroon-rgb: 230, 69, 83;
+	--peach-rgb: 254, 100, 11;
+	--yellow-rgb: 223, 142, 29;
+	--green-rgb: 64, 160, 43;
+	--teal-rgb: 23, 146, 153;
+	--sky-rgb: 4, 165, 229;
+	--sapphire-rgb: 32, 159, 181;
+	--blue-rgb: 30, 102, 245;
+	--lavender-rgb: 114, 135, 253;
+
+	--text-rgb: 76, 79, 105;
+	--subtext1-rgb: 92, 95, 119;
+	--subtext0-rgb: 108, 111, 133;
+	--overlay2-rgb: 124, 127, 147;
+	--overlay1-rgb: 140, 143, 161;
+	--overlay0-rgb: 156, 160, 176;
+	--surface2-rgb: 172, 176, 190;
+	--surface1-rgb: 188, 192, 204;
+	--surface0-rgb: 204, 208, 218;
+	--base-rgb: 239, 241, 245;
+	--mantle-rgb: 230, 233, 239;
+	--crust-rgb: 220, 224, 232;
+}
+
+.light .bg-gray-5 {
+	background-color: var(--mantle);
+}
+#document-sidebar {
+	background-color: var(--mantle);
+}
+.rn-clr-background-primary {
+	background-color: var(--base);
+}
+.rn-clr-background-secondary {
+	background-color: var(--mantle);
+}
+.rn-clr-background-tertiary {
+	background-color: var(--crust);
+}
+.rn-clr-background {
+	background-color: var(--base);
+}
+.rn-clr-background-accent {
+	background-color: var(--surface2);
+}
+.rn-clr-background-accent--hovered {
+	background: var(--overlay0);
+	background-color: var(--overlay0);
+}
+.rn-clr-background-light-accent {
+	background-color: var(--surface2);
+}
+.rn-pane {
+	background-color: var(--base);
+}
+.rn-pane__body {
+	background-color: var(--base);
+}
+.rn-pane__top-bar {
+	background-color: var(--base);
+}
+
+.rn-editor__rem__body__text {
+	color: var(--text);
+}
+.rn-editor__rem__body {
+	background-color: var(--base);
+}
+.rn-clr-content-primary {
+	color: var(--text);
+}
+.rn-clr-content-accent {
+	color: var(--subtext1);
+}
+.rn-clr-content-tertiary {
+	color: var(--subtext0);
+}
+
+.top-bar-container {
+	background-color: var(--base);
+}
+
+/* clozes */
+
+.light .cloze {
+	background-color: var(--surface0);
+}
+.cloze {
+	border-bottom-color: var(--blue);
+}
+.light .rich-text-editor__change-cloze-button {
+	background-color: var(--blue), var(--tw-bg-opacity);
+
+	--tw-bg-opacity: 1;
+}
+
+/* rem */
+.rn-rem-reference {
+	color: var(--surface1);
+}
+.rn-button {
+	color: var(--surface1);
+}
+.rn-button--hovered {
+	color: var(--surface2);
+}
+.rn-editor__rem__body--red {
+	color: var(--red);
+}
+.rn-editor__rem__body--orange {
+	color: var(--peach);
+}
+.rn-editor__rem__body--yellow {
+	color: var(--yellow);
+}
+.rn-editor__rem__body--blue {
+	color: var(--sapphire);
+}
+.rn-editor__rem__body--purple {
+	color: var(--lavender);
+}
+.rn-editor__rem__body--green {
+	color: var(--green);
+}
+
+/* overlays (omnibar, slash menu) */
+
+.rn-omnibar {
+	background-color: var(--overlay1);
+}
+.rn-menu {
+	background-color: var(--overlay2);
+}
+.rn-dialog-overlay {
+	background-color: var(--overlay0);
+}
+/* search result and elevations */
+
+.rn-clr-background-elevation-10 {
+	background: var(--surface0);
+}
+
+/* color reassignments */
+/* this is literally just the favorite star :) */
+.light .text-yellow-60 {
+	color: var(--yellow);
+}
+
+/* highlight reassignments */
+.light .highlight-color--red {
+	background-color: rgba(var(--red-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.light .highlight-color--orange {
+	background-color: rgba(var(--peach-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.light .highlight-color--yellow {
+	background-color: rgba(var(--yellow-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.light .highlight-color--blue {
+	background-color: rgba(var(--sapphire-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.light .highlight-color--purple {
+	background-color: rgba(var(--lavender-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.light .highlight-color--green {
+	background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
 }
