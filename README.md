@@ -23,7 +23,7 @@
 </details>
 <details>
 <summary>🪴 Frappé</summary>
-<img src="assets/remnote-remnote-frappe.webp"/>
+<img src="assets/remnote-frappe.webp"/>
 </details>
 <details>
 <summary>🌺 Macchiato</summary>
