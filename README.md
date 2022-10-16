@@ -15,16 +15,35 @@
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/sample.png"/>
 </p>
 
+## Previews
+
+<details>
+<summary>🌻 Latte</summary>
+<img src="assets/remnote-latte.webp"/>
+</details>
+<details>
+<summary>🪴 Frappé</summary>
+<img src="assets/remnote-remnote-frappe.webp"/>
+</details>
+<details>
+<summary>🌺 Macchiato</summary>
+<img src="assets/remnote-macchiato.webp"/>
+</details>
+<details>
+<summary>🌿 Mocha</summary>
+<img src="assets/remnote-mocha.webp"/>
+</details>
+
 ## Usage
 
 1. Open Remnote (either the Desktop-, Mobile App or Website)
 2. Search for a new Note with the name `Custom CSS`
 3. Click on `Add Blank CSS Block`
 4. Paste the code from your desired Flavour into the block
-    1. [🌻 Latte](latte/theme.css)
-    2. [🪴 Frappé](frapp%C3%A9/theme.css)
-    3. [🌺 Macchiato](macchiato/theme.css)
-    4. [🌿 Mocha](mocha/theme.css)
+    1. [🌻 Latte](https://github.com/catppuccin/remnote/raw/main/latte/theme.css)
+    2. [🪴 Frappé](https://github.com/catppuccin/remnote/raw/main/frapp%C3%A9/theme.css)
+    3. [🌺 Macchiato](https://github.com/catppuccin/remnote/raw/main/macchiato/theme.css)
+    4. [🌿 Mocha](https://github.com/catppuccin/remnote/raw/main/mocha/theme.css)
 
 > If custom CSS is preventing the loading of remnote, visit <http://www.remnote.com/notes?disableCustomCSS> ([From CSS Docs](https://plugins.remnote.com/custom-css))
 
