@@ -1,0 +1,213 @@
+:root {
+	--rosewater: #f2d5cf;
+	--flamingo: #eebebe;
+	--pink: #f4b8e4;
+	--mauve: #ca9ee6;
+	--red: #e78284;
+	--maroon: #ea999c;
+	--peach: #ef9f76;
+	--yellow: #e5c890;
+	--green: #a6d189;
+	--teal: #81c8be;
+	--sky: #99d1db;
+	--sapphire: #85c1dc;
+	--blue: #8caaee;
+	--lavender: #babbf1;
+	--text: #c6d0f5;
+	--subtext1: #b5bfe2;
+	--subtext0: #a5adce;
+	--overlay2: #949cbb;
+	--overlay1: #838ba7;
+	--overlay0: #737994;
+	--surface2: #626880;
+	--surface1: #51576d;
+	--surface0: #414559;
+	--base: #303446;
+	--mantle: #292c3c;
+	--crust: #232634;
+	/* convert these hexadecimal values into rgb values */
+	--rosewater-rgb: 242, 213, 207;
+	--flamingo-rgb: 238, 190, 190;
+	--pink-rgb: 244, 184, 228;
+	--mauve-rgb: 202, 158, 230;
+	--red-rgb: 231, 130, 132;
+	--maroon-rgb: 234, 153, 156;
+	--peach-rgb: 239, 159, 118;
+	--yellow-rgb: 229, 200, 144;
+	--green-rgb: 166, 209, 137;
+	--teal-rgb: 129, 200, 190;
+	--sky-rgb: 153, 209, 219;
+	--sapphire-rgb: 133, 193, 220;
+	--blue-rgb: 140, 170, 238;
+	--lavender-rgb: 186, 187, 241;
+	--text-rgb: 198, 208, 245;
+	--subtext1-rgb: 181, 191, 226;
+	--subtext0-rgb: 165, 173, 206;
+	--overlay2-rgb: 148, 156, 187;
+	--overlay1-rgb: 131, 139, 167;
+	--overlay0-rgb: 115, 121, 148;
+	--surface2-rgb: 98, 104, 128;
+	--surface1-rgb: 81, 87, 109;
+	--surface0-rgb: 65, 69, 89;
+	--base-rgb: 48, 52, 70;
+	--mantle-rgb: 41, 44, 60;
+	--crust-rgb: 35, 38, 52;
+}
+
+.dark .bg-gray-5 {
+	background-color: var(--mantle);
+}
+#document-sidebar {
+	background-color: var(--mantle);
+}
+.rn-clr-background-primary {
+	background-color: var(--base);
+}
+.rn-clr-background-secondary {
+	background-color: var(--mantle);
+}
+.rn-clr-background-tertiary {
+	background-color: var(--crust);
+}
+.rn-clr-background {
+	background-color: var(--base);
+}
+.rn-clr-background-accent {
+	background-color: var(--surface2);
+}
+.rn-clr-background-accent--hovered {
+	background: var(--overlay0);
+	background-color: var(--overlay0);
+}
+.rn-clr-background-light-accent {
+	background-color: var(--surface2);
+}
+.rn-pane {
+	background-color: var(--base);
+}
+.rn-pane__body {
+	background-color: var(--base);
+}
+.rn-pane__top-bar {
+	background-color: var(--base);
+}
+
+.rn-editor__rem__body__text {
+	color: var(--text);
+}
+.rn-editor__rem__body {
+	background-color: var(--base);
+}
+.rn-clr-content-primary {
+	color: var(--text);
+}
+.rn-clr-content-accent {
+	color: var(--subtext1);
+}
+.rn-clr-content-tertiary {
+	color: var(--subtext0);
+}
+
+.top-bar-container {
+	background-color: var(--base);
+}
+
+/* clozes */
+
+.dark .cloze {
+	background-color: var(--surface0);
+}
+.cloze {
+	border-bottom-color: var(--blue);
+}
+.dark .rich-text-editor__change-cloze-button {
+	background-color: var(--blue), var(--tw-bg-opacity);
+
+	--tw-bg-opacity: 1;
+}
+
+/* rem */
+.rn-rem-reference {
+	color: var(--blue);
+}
+.rn-button {
+	color: var(--surface1);
+}
+.rn-button--hovered {
+	color: var(--surface2);
+}
+.rn-editor__rem__body--red {
+	color: var(--red);
+}
+.rn-editor__rem__body--orange {
+	color: var(--peach);
+}
+.rn-editor__rem__body--yellow {
+	color: var(--yellow);
+}
+.rn-editor__rem__body--blue {
+	color: var(--sapphire);
+}
+.rn-editor__rem__body--purple {
+	color: var(--lavender);
+}
+.rn-editor__rem__body--green {
+	color: var(--green);
+}
+
+/* overlays (omnibar, slash menu) */
+
+.rn-omnibar {
+	background-color: var(--overlay1);
+}
+.rn-menu {
+	background-color: var(--overlay2);
+}
+.rn-dialog-overlay {
+	background-color: var(--overlay0);
+}
+/* search result and elevations */
+
+.rn-clr-background-elevation-10 {
+	background: var(--surface0);
+}
+
+/* color reassignments */
+/* this is literally just the favorite star :) */
+.dark .text-yellow-60 {
+	color: var(--yellow);
+}
+
+/* highlight reassignments */
+.dark .highlight-color--red {
+	background-color: rgba(var(--red-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--orange {
+	background-color: rgba(var(--peach-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--yellow {
+	background-color: rgba(var(--yellow-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--blue {
+	background-color: rgba(var(--sapphire-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--purple {
+	background-color: rgba(var(--lavender-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--green {
+	background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+#search-results__no-results {
+	color: var(--text);
+}

@@ -1,0 +1,226 @@
+/* 
+@name           Remnote Catppuccin Mocha
+@namespace      github.com/catppuccin/remnote
+@version        0.1
+@description    Soothing pastel theme for Remnote
+@author         justTOBBI, colderinit
+
+Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
+TODO: 
+- [ ] Add Hover states?
+*/
+
+:root {
+	--base: #1e1e2e;
+	--mantle: #181825;
+	--crust: #11111b;
+	--surface0: #313244;
+	--surface1: #45475a;
+	--surface2: #585b70;
+	--overlay0: #6c7086;
+	--overlay1: #7f849c;
+	--overlay2: #9399b2;
+	--subtext0: #a6adc8;
+	--subtext1: #bac2de;
+	--text: #cdd6f4;
+	--rosewater: #f5e0dc;
+	--flamingo: #f2cdcd;
+	--pink: #f5c2e7;
+	--mauve: #cba6f7;
+	--red: #f38ba8;
+	--maroon: #eba0ac;
+	--peach: #fab387;
+	--yellow: #f9e2af;
+	--green: #a6e3a1;
+	--teal: #94e2d5;
+	--sky: #89dceb;
+	--sapphire: #74c7ec;
+	--blue: #8964fa;
+	--lavender: #b4befe;
+	/* convert hexadecimal to rgb values */
+	--rosewater-rgb: 245, 224, 220;
+	--flamingo-rgb: 242, 205, 205;
+	--pink-rgb: 245, 194, 231;
+	--mauve-rgb: 203, 166, 247;
+	--red-rgb: 243, 139, 168;
+	--maroon-rgb: 235, 160, 172;
+	--peach-rgb: 250, 179, 135;
+	--yellow-rgb: 249, 226, 175;
+	--green-rgb: 166, 227, 161;
+	--teal-rgb: 148, 226, 213;
+	--sky-rgb: 137, 220, 235;
+	--sapphire-rgb: 116, 199, 236;
+	--blue-rgb: 137, 100, 250;
+	--lavender-rgb: 180, 190, 254;
+	--text-rgb: 205, 214, 244;
+	--subtext1-rgb: 186, 194, 222;
+	--subtext0-rgb: 166, 173, 200;
+	--overlay2-rgb: 147, 153, 178;
+	--overlay1-rgb: 127, 132, 156;
+	--overlay0-rgb: 108, 112, 134;
+	--surface2-rgb: 88, 91, 112;
+	--surface1-rgb: 69, 71, 90;
+	--surface0-rgb: 49, 50, 68;
+	--crust-rgb: 17, 17, 27;
+	--mantle-rgb: 24, 24, 37;
+	--base-rgb: 30, 30, 46;
+}
+
+.dark .bg-gray-5 {
+	background-color: var(--mantle);
+}
+#document-sidebar {
+	background-color: var(--mantle);
+}
+.rn-clr-background-primary {
+	background-color: var(--base);
+}
+.rn-clr-background-secondary {
+	background-color: var(--mantle);
+}
+.rn-clr-background-tertiary {
+	background-color: var(--crust);
+}
+.rn-clr-background {
+	background-color: var(--base);
+}
+.rn-clr-background-accent {
+	background-color: var(--surface2);
+}
+.rn-clr-background-accent--hovered {
+	background: var(--overlay0);
+	background-color: var(--overlay0);
+}
+.rn-clr-background-light-accent {
+	background-color: var(--surface2);
+}
+.rn-pane {
+	background-color: var(--base);
+}
+.rn-pane__body {
+	background-color: var(--base);
+}
+.rn-pane__top-bar {
+	background-color: var(--base);
+}
+
+.rn-editor__rem__body__text {
+	color: var(--text);
+}
+.rn-editor__rem__body {
+	background-color: var(--base);
+}
+.rn-clr-content-primary {
+	color: var(--text);
+}
+.rn-clr-content-accent {
+	color: var(--subtext1);
+}
+.rn-clr-content-tertiary {
+	color: var(--subtext0);
+}
+
+.top-bar-container {
+	background-color: var(--base);
+}
+
+/* clozes */
+
+.dark .cloze {
+	background-color: var(--surface0);
+}
+.cloze {
+	border-bottom-color: var(--blue);
+}
+.dark .rich-text-editor__change-cloze-button {
+	background-color: var(--blue), var(--tw-bg-opacity);
+
+	--tw-bg-opacity: 1;
+}
+
+/* rem */
+.rn-rem-reference {
+	color: var(--blue);
+}
+.rn-button {
+	color: var(--surface1);
+}
+.rn-button--hovered {
+	color: var(--surface2);
+}
+.rn-editor__rem__body--red {
+	color: var(--red);
+}
+.rn-editor__rem__body--orange {
+	color: var(--peach);
+}
+.rn-editor__rem__body--yellow {
+	color: var(--yellow);
+}
+.rn-editor__rem__body--blue {
+	color: var(--sapphire);
+}
+.rn-editor__rem__body--purple {
+	color: var(--lavender);
+}
+.rn-editor__rem__body--green {
+	color: var(--green);
+}
+
+/* overlays (omnibar, slash menu) */
+
+.rn-omnibar {
+	background-color: var(--overlay1);
+}
+.rn-menu {
+	background-color: var(--overlay2);
+}
+.rn-dialog-overlay {
+	background-color: var(--overlay0);
+}
+/* search result and elevations */
+
+.rn-clr-background-elevation-10 {
+	background: var(--surface0);
+}
+
+/* color reassignments */
+/* this is literally just the favorite star :) */
+.dark .text-yellow-60 {
+	color: var(--yellow);
+}
+
+/* highlight reassignments */
+.dark .highlight-color--red {
+	background-color: rgba(var(--red-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--orange {
+	background-color: rgba(var(--peach-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--yellow {
+	background-color: rgba(var(--yellow-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--blue {
+	background-color: rgba(var(--sapphire-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--purple {
+	background-color: rgba(var(--lavender-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+
+.dark .highlight-color--green {
+	background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+}
+#search-results__no-results {
+	color: var(--text);
+}

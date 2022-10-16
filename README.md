@@ -21,17 +21,17 @@
 2. Search for a new Note with the name `Custom CSS`
 3. Click on `Add Blank CSS Block`
 4. Paste the code from your desired Flavour into the block
-   1. [🌻 Latte](themes/latte.css)
-   2. [🪴 Frappé](themes/frappe.css)
-   3. [🌺 Macchiato](thenes/macchiato.css)
-   4. [🌿 Mocha](themes/mocha.css)
+    1. [🌻 Latte](latte/theme.css)
+    2. [🪴 Frappé](frapp%C3%A9/theme.css)
+    3. [🌺 Macchiato](macchiato/theme.css)
+    4. [🌿 Mocha](mocha/theme.css)
 
-
+> If custom CSS is preventing the loading of remnote, visit <http://www.remnote.com/notes?disableCustomCSS> ([From CSS Docs](https://plugins.remnote.com/custom-css))
 
 ## 💝 Thanks to
 
-- [justTOBBI](https://github.com/justTOBBI)
-- [colderinit](https://github.com/colderinit)
+-   [justTOBBI](https://github.com/justTOBBI)
+-   [colderinit](https://github.com/colderinit)
 
 &nbsp;
 
