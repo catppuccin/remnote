@@ -144,7 +144,7 @@ TODO:
 
 /* rem */
 .rn-rem-reference {
-	color: var(--surface1);
+	color: var(--blue);
 }
 .rn-button {
 	color: var(--surface1);
@@ -223,4 +223,7 @@ TODO:
 .dark .highlight-color--green {
 	background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
 	--tw-bg-opacity: 0.5;
+}
+#search-results__no-results {
+	color: var(--text);
 }
