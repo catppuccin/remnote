@@ -2,7 +2,7 @@
 	"manifestVersion": 1,
 	"id": "catppuccin-latte",
 	"name": "Catppuccin Latte Theme",
-	"author": "<authors>",
+	"author": "justTOBBI, colderinit",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": false,
 	"version": {
@@ -10,8 +10,8 @@
 		"minor": 1,
 		"patch": 0
 	},
-	"theme": ["dark"],
-	"description": "Catppuccin Latte Theme for Remnote.",
+	"theme": ["light"],
+	"description": "Catppuccin Latte Theme for Remnote. Requires light mode.",
 	"requestNative": false,
 	"requiredScopes": [
 		{

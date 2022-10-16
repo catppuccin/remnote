@@ -11,7 +11,7 @@
 		"patch": 0
 	},
 	"theme": ["dark"],
-	"description": "Catppuccin Macchiato Theme for Remnote.",
+	"description": "Catppuccin Macchiato Theme for Remnote. Requires dark mode.",
 	"requestNative": false,
 	"requiredScopes": [
 		{

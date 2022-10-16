@@ -2,7 +2,7 @@
 	"manifestVersion": 1,
 	"id": "catppuccin-frappe",
 	"name": "Catppuccin Frappé Theme",
-	"author": "<authors>",
+	"author": "justTOBBI, colderinit",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": false,
 	"version": {
@@ -11,7 +11,7 @@
 		"patch": 0
 	},
 	"theme": ["dark"],
-	"description": "Catppuccin Frappé Theme for Remnote.",
+	"description": "Catppuccin Frappé Theme for Remnote. Requires dark mode.",
 	"requestNative": false,
 	"requiredScopes": [
 		{
