@@ -4,7 +4,7 @@
 	"name": "Catppuccin Frappé Theme",
 	"author": "justTOBBI, colderinit",
 	"repoUrl": "https://github.com/catppuccin/remnote",
-	"enableOnMobile": false,
+	"enableOnMobile": true,
 	"version": {
 		"major": 0,
 		"minor": 1,
