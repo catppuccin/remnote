@@ -79,7 +79,7 @@ TODO:
 }
 
 .rn-clr-background-primary {
-    background-color: var(--base);
+    background-color: var(--base)!important;
 }
 
 .rn-clr-background-secondary {

@@ -74,7 +74,7 @@ TODO:
 	background-color: var(--mantle);
 }
 .rn-clr-background-primary {
-	background-color: var(--base);
+	background-color: var(--base)!important;
 }
 .rn-clr-background-secondary {
 	background-color: var(--mantle);
