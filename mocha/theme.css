@@ -1,226 +1,232 @@
-/* 
-@name           Remnote Catppuccin Mocha
+/*
+@name           Remnote Catppuccin mocha
 @namespace      github.com/catppuccin/remnote
-@version        0.1
+@version        0.3
 @description    Soothing pastel theme for Remnote
 @author         justTOBBI, colderinit
 
 Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
-TODO: 
-- [ ] Add Hover states?
 */
 
-:root {
-	--base: #1e1e2e;
-	--mantle: #181825;
-	--crust: #11111b;
-	--surface0: #313244;
-	--surface1: #45475a;
-	--surface2: #585b70;
-	--overlay0: #6c7086;
-	--overlay1: #7f849c;
-	--overlay2: #9399b2;
-	--subtext0: #a6adc8;
-	--subtext1: #bac2de;
-	--text: #cdd6f4;
-	--rosewater: #f5e0dc;
-	--flamingo: #f2cdcd;
-	--pink: #f5c2e7;
-	--mauve: #cba6f7;
-	--red: #f38ba8;
-	--maroon: #eba0ac;
-	--peach: #fab387;
-	--yellow: #f9e2af;
-	--green: #a6e3a1;
-	--teal: #94e2d5;
-	--sky: #89dceb;
-	--sapphire: #74c7ec;
-	--blue: #8964fa;
-	--lavender: #b4befe;
-	/* convert hexadecimal to rgb values */
-	--rosewater-rgb: 245, 224, 220;
-	--flamingo-rgb: 242, 205, 205;
-	--pink-rgb: 245, 194, 231;
-	--mauve-rgb: 203, 166, 247;
-	--red-rgb: 243, 139, 168;
-	--maroon-rgb: 235, 160, 172;
-	--peach-rgb: 250, 179, 135;
-	--yellow-rgb: 249, 226, 175;
-	--green-rgb: 166, 227, 161;
-	--teal-rgb: 148, 226, 213;
-	--sky-rgb: 137, 220, 235;
-	--sapphire-rgb: 116, 199, 236;
-	--blue-rgb: 137, 100, 250;
-	--lavender-rgb: 180, 190, 254;
-	--text-rgb: 205, 214, 244;
-	--subtext1-rgb: 186, 194, 222;
-	--subtext0-rgb: 166, 173, 200;
-	--overlay2-rgb: 147, 153, 178;
-	--overlay1-rgb: 127, 132, 156;
-	--overlay0-rgb: 108, 112, 134;
-	--surface2-rgb: 88, 91, 112;
-	--surface1-rgb: 69, 71, 90;
-	--surface0-rgb: 49, 50, 68;
-	--crust-rgb: 17, 17, 27;
-	--mantle-rgb: 24, 24, 37;
-	--base-rgb: 30, 30, 46;
-}
+@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
 
 .dark .bg-gray-5 {
-	background-color: var(--mantle);
+	background-color: var(--ctp-mocha-mantle);
 }
+
 #document-sidebar {
-	background-color: var(--mantle);
+	background-color: var(--ctp-mocha-crust);
 }
+
 .rn-clr-background-primary {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
+
+.h-11.w-full {
+	background: var(--ctp-mocha-base);
+}
+
 .rn-clr-background-secondary {
-	background-color: var(--mantle);
+	background-color: var(--ctp-mocha-crust);
 }
+
 .rn-clr-background-tertiary {
-	background-color: var(--crust);
+	background-color: var(--ctp-mocha-mantle);
 }
+
 .rn-clr-background {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
+
 .rn-clr-background-accent {
-	background-color: var(--surface2);
+	background-color: var(--ctp-mocha-surface2);
 }
+
 .rn-clr-background-accent--hovered {
-	background: var(--overlay0);
-	background-color: var(--overlay0);
+	background: var(--ctp-mocha-overlay0);
+	background-color: var(--ctp-mocha-overlay0);
 }
+
 .rn-clr-background-light-accent {
-	background-color: var(--surface2);
+	background-color: var(--ctp-mocha-surface2);
 }
+
 .rn-pane {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
+
 .rn-pane__body {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
+
 .rn-pane__top-bar {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
 
 .rn-editor__rem__body__text {
-	color: var(--text);
+	color: var(--ctp-mocha-text);
 }
+
 .rn-editor__rem__body {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
+
 .rn-clr-content-primary {
-	color: var(--text);
+	color: var(--ctp-mocha-text);
 }
+
 .rn-clr-content-accent {
-	color: var(--subtext1);
+	color: var(--ctp-mocha-subtext1);
 }
+
 .rn-clr-content-tertiary {
-	color: var(--subtext0);
+	color: var(--ctp-mocha-subtext0);
 }
 
 .top-bar-container {
-	background-color: var(--base);
+	background-color: var(--ctp-mocha-base);
 }
 
 /* clozes */
 
 .dark .cloze {
-	background-color: var(--surface0);
+	background-color: var(--ctp-mocha-surface0);
 }
-.cloze {
-	border-bottom-color: var(--blue);
-}
-.dark .rich-text-editor__change-cloze-button {
-	background-color: var(--blue), var(--tw-bg-opacity);
 
+.cloze {
+	border-bottom-color: var(--ctp-mocha-blue);
+}
+
+.dark .rich-text-editor__change-cloze-button {
+	background-color: var(--ctp-mocha-blue), var(--tw-bg-opacity);
 	--tw-bg-opacity: 1;
 }
 
 /* rem */
+
 .rn-rem-reference {
-	color: var(--blue);
+	color: var(--ctp-mocha-blue);
 }
+
 .rn-button {
-	color: var(--surface1);
+	color: var(--ctp-mocha-surface1);
 }
+
 .rn-button--hovered {
-	color: var(--surface2);
+	color: var(--ctp-mocha-surface2);
 }
+
 .rn-editor__rem__body--red {
-	color: var(--red);
+	color: var(--ctp-mocha-red);
 }
+
 .rn-editor__rem__body--orange {
-	color: var(--peach);
+	color: var(--ctp-mocha-peach);
 }
+
 .rn-editor__rem__body--yellow {
-	color: var(--yellow);
+	color: var(--ctp-mocha-yellow);
 }
+
 .rn-editor__rem__body--blue {
-	color: var(--sapphire);
+	color: var(--ctp-mocha-blue);
 }
+
 .rn-editor__rem__body--purple {
-	color: var(--lavender);
+	color: var(--ctp-mocha-muave);
 }
+
 .rn-editor__rem__body--green {
-	color: var(--green);
+	color: var(--ctp-mocha-green);
 }
 
 /* overlays (omnibar, slash menu) */
 
 .rn-omnibar {
-	background-color: var(--overlay1);
+	background-color: var(--ctp-mocha-overlay1);
 }
+
 .rn-menu {
-	background-color: var(--overlay2);
+	background-color: var(--ctp-mocha-overlay2);
 }
+
 .rn-dialog-overlay {
-	background-color: var(--overlay0);
+	background-color: var(--ctp-mocha-overlay0);
 }
+
 /* search result and elevations */
 
 .rn-clr-background-elevation-10 {
-	background: var(--surface0);
+	background: var(--ctp-mocha-surface0);
 }
 
 /* color reassignments */
+
 /* this is literally just the favorite star :) */
+
 .dark .text-yellow-60 {
-	color: var(--yellow);
+	color: var(--ctp-mocha-yellow);
 }
 
 /* highlight reassignments */
-.dark .highlight-color--red {
-	background-color: rgba(var(--red-rgb), var(--tw-bg-opacity));
-	--tw-bg-opacity: 0.5;
-}
 
+.dark .highlight-color--red {
+	--tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-mocha-red-raw), var(--tw-bg-opacity));
+	color: var(--ctp-mocha-text);
+}
 .dark .highlight-color--orange {
-	background-color: rgba(var(--peach-rgb), var(--tw-bg-opacity));
+	background-color: rgba(var(--ctp-mocha-peach-raw), var(--tw-bg-opacity));
+	color: var(--ctp-mocha-text);
 	--tw-bg-opacity: 0.5;
 }
 
 .dark .highlight-color--yellow {
-	background-color: rgba(var(--yellow-rgb), var(--tw-bg-opacity));
+	background-color: rgba(var(--ctp-mocha-yellow-raw), var(--tw-bg-opacity));
+	color: var(--ctp-mocha-text);
 	--tw-bg-opacity: 0.5;
 }
 
 .dark .highlight-color--blue {
-	background-color: rgba(var(--sapphire-rgb), var(--tw-bg-opacity));
+	background-color: rgba(var(--ctp-mocha-blue-raw), var(--tw-bg-opacity));
 	--tw-bg-opacity: 0.5;
+	color: var(--ctp-mocha-text);
 }
 
 .dark .highlight-color--purple {
-	background-color: rgba(var(--lavender-rgb), var(--tw-bg-opacity));
+	background-color: rgba(var(--ctp-mocha-mauve-raw), var(--tw-bg-opacity));
+	color: var(--ctp-mocha-text);
 	--tw-bg-opacity: 0.5;
 }
 
 .dark .highlight-color--green {
-	background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
+	background-color: rgba(var(--ctp-mocha-green-raw), var(--tw-bg-opacity));
+	color: var(--ctp-mocha-text);
 	--tw-bg-opacity: 0.5;
 }
 #search-results__no-results {
-	color: var(--text);
+	color: var(--ctp-mocha-text);
+}
+
+.dark .rn-code-node .rich-text-editor .EditorContainer {
+	background-color: var(--ctp-mocha-surface0);
+}
+
+.dark .dark\:text-gray-100 {
+	color: var(--ctp-mocha-text);
+}
+
+.rn-add-button {
+	color: var(--ctp-mocha-text);
+	background-color: var(--ctp-mocha-surface0);
+}
+
+.hover\:rn-clr-background-accent--hovered:hover {
+	color: var(--ctp-mocha-crust) !important;
+	background: var(--ctp-mocha-red) !important;
+}
+
+.mosaic-tile {
+	--rn-clr-background-primary: var(--ctp-mocha-base);
 }

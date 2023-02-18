@@ -1,261 +1,230 @@
-/* 
+/*
 @name           Remnote Catppuccin Latte
 @namespace      github.com/catppuccin/remnote
-@version        0.1
+@version        0.3
 @description    Soothing pastel theme for Remnote
 @author         justTOBBI, colderinit
 Originally cloned from https://github.com/ethomasv/RemNoteTheme
 */
 
-:root {
-    --rosewater: #dc8a78;
-    --flamingo: #dd7878;
-    --pink: #ea76cb;
-    --mauve: #8839ef;
-    --red: #d20f39;
-    --maroon: #e64553;
-    --peach: #fe640b;
-    --yellow: #df8e1d;
-    --green: #40a02b;
-    --teal: #179299;
-    --sky: #04a5e5;
-    --sapphire: #209fb5;
-    --blue: #1e66f5;
-    --lavender: #7287fd;
-    --text: #4c4f69;
-    --subtext1: #5c5f77;
-    --subtext0: #6c6f85;
-    --overlay2: #7c7f93;
-    --overlay1: #8c8fa1;
-    --overlayo: #9ca0b0;
-    --surface2: #acb0be;
-    --surface1: #bcc0cc;
-    --surface0: #ccd0da;
-    --base: #eff1f5;
-    --mantle: #e6e9ef;
-    --crust: #dce0e8;
-    /* convert the hexadecimal values above into rgb values */
-    --rosewater-rgb: 220, 138, 120;
-    --flamingo-rgb: 221, 120, 120;
-    --pink-rgb: 234, 118, 203;
-    --mauve-rgb: 136, 57, 239;
-    --red-rgb: 210, 15, 57;
-    --maroon-rgb: 230, 69, 83;
-    --peach-rgb: 254, 100, 11;
-    --yellow-rgb: 223, 142, 29;
-    --green-rgb: 64, 160, 43;
-    --teal-rgb: 23, 146, 153;
-    --sky-rgb: 4, 165, 229;
-    --sapphire-rgb: 32, 159, 181;
-    --blue-rgb: 30, 102, 245;
-    --lavender-rgb: 114, 135, 253;
-    --text-rgb: 76, 79, 105;
-    --subtext1-rgb: 92, 95, 119;
-    --subtext0-rgb: 108, 111, 133;
-    --overlay2-rgb: 124, 127, 147;
-    --overlay1-rgb: 140, 143, 161;
-    --overlay0-rgb: 156, 160, 176;
-    --surface2-rgb: 172, 176, 190;
-    --surface1-rgb: 188, 192, 204;
-    --surface0-rgb: 204, 208, 218;
-    --base-rgb: 239, 241, 245;
-    --mantle-rgb: 230, 233, 239;
-    --crust-rgb: 220, 224, 232;
-}
+@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
 
 .light .bg-gray-5 {
-    background-color: var(--mantle);
+	background-color: var(--ctp-latte-mantle);
 }
 
 #document-sidebar {
-    background-color: var(--mantle);
+	background-color: var(--ctp-latte-crust);
 }
 
 .rn-clr-background-primary {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
+}
+
+.h-11.w-full {
+	background: var(--ctp-latte-base);
 }
 
 .rn-clr-background-secondary {
-    background-color: var(--mantle);
+	background-color: var(--ctp-latte-crust);
 }
 
 .rn-clr-background-tertiary {
-    background-color: var(--crust);
+	background-color: var(--ctp-latte-mantle);
 }
 
 .rn-clr-background {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
 
 .rn-clr-background-accent {
-    background-color: var(--surface2);
+	background-color: var(--ctp-latte-surface2);
 }
 
 .rn-clr-background-accent--hovered {
-    background: var(--overlay0);
-    background-color: var(--overlay0);
+	background: var(--ctp-latte-overlay0);
+	background-color: var(--ctp-latte-overlay0);
 }
 
 .rn-clr-background-light-accent {
-    background-color: var(--surface2);
+	background-color: var(--ctp-latte-surface2);
 }
 
 .rn-pane {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
 
 .rn-pane__body {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
 
 .rn-pane__top-bar {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
 
 .rn-editor__rem__body__text {
-    color: var(--text);
+	color: var(--ctp-latte-text);
 }
 
 .rn-editor__rem__body {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
 
 .rn-clr-content-primary {
-    color: var(--text);
+	color: var(--ctp-latte-text);
 }
 
 .rn-clr-content-accent {
-    color: var(--subtext1);
+	color: var(--ctp-latte-subtext1);
 }
 
 .rn-clr-content-tertiary {
-    color: var(--subtext0);
+	color: var(--ctp-latte-subtext0);
 }
 
 .top-bar-container {
-    background-color: var(--base);
+	background-color: var(--ctp-latte-base);
 }
-
 
 /* clozes */
 
 .light .cloze {
-    background-color: var(--surface0);
+	background-color: var(--ctp-latte-surface0);
 }
 
 .cloze {
-    border-bottom-color: var(--blue);
+	border-bottom-color: var(--ctp-latte-blue);
 }
 
 .light .rich-text-editor__change-cloze-button {
-    background-color: var(--blue), var(--tw-bg-opacity);
-    --tw-bg-opacity: 1;
+	background-color: var(--ctp-latte-blue), var(--tw-bg-opacity);
+	--tw-bg-opacity: 1;
 }
-
 
 /* rem */
 
 .rn-rem-reference {
-    color: var(--blue);
+	color: var(--ctp-latte-blue);
 }
 
 .rn-button {
-    color: var(--surface1);
+	color: var(--ctp-latte-surface1);
 }
 
 .rn-button--hovered {
-    color: var(--surface2);
+	color: var(--ctp-latte-surface2);
 }
 
 .rn-editor__rem__body--red {
-    color: var(--red);
+	color: var(--ctp-latte-red);
 }
 
 .rn-editor__rem__body--orange {
-    color: var(--peach);
+	color: var(--ctp-latte-peach);
 }
 
 .rn-editor__rem__body--yellow {
-    color: var(--yellow);
+	color: var(--ctp-latte-yellow);
 }
 
 .rn-editor__rem__body--blue {
-    color: var(--sapphire);
+	color: var(--ctp-latte-blue);
 }
 
 .rn-editor__rem__body--purple {
-    color: var(--lavender);
+	color: var(--ctp-latte-muave);
 }
 
 .rn-editor__rem__body--green {
-    color: var(--green);
+	color: var(--ctp-latte-green);
 }
-
 
 /* overlays (omnibar, slash menu) */
 
 .rn-omnibar {
-    background-color: var(--overlay1);
+	background-color: var(--ctp-latte-overlay1);
 }
 
 .rn-menu {
-    background-color: var(--overlay2);
+	background-color: var(--ctp-latte-overlay2);
 }
 
 .rn-dialog-overlay {
-    background-color: var(--overlay0);
+	background-color: var(--ctp-latte-overlay0);
 }
-
 
 /* search result and elevations */
 
 .rn-clr-background-elevation-10 {
-    background: var(--surface0);
+	background: var(--ctp-latte-surface0);
 }
 
-
 /* color reassignments */
-
 
 /* this is literally just the favorite star :) */
 
 .light .text-yellow-60 {
-    color: var(--yellow);
+	color: var(--ctp-latte-yellow);
 }
-
 
 /* highlight reassignments */
 
 .light .highlight-color--red {
-    background-color: rgba(var(--red-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	--tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-red-raw), var(--tw-bg-opacity));
+	color: var(--ctp-latte-text);
 }
-
 .light .highlight-color--orange {
-    background-color: rgba(var(--peach-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-peach-raw), var(--tw-bg-opacity));
+	color: var(--ctp-latte-text);
+	--tw-bg-opacity: 0.5;
 }
 
 .light .highlight-color--yellow {
-    background-color: rgba(var(--yellow-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-yellow-raw), var(--tw-bg-opacity));
+	color: var(--ctp-latte-text);
+	--tw-bg-opacity: 0.5;
 }
 
 .light .highlight-color--blue {
-    background-color: rgba(var(--sapphire-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-blue-raw), var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.5;
+	color: var(--ctp-latte-text);
 }
 
 .light .highlight-color--purple {
-    background-color: rgba(var(--lavender-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-mauve-raw), var(--tw-bg-opacity));
+	color: var(--ctp-latte-text);
+	--tw-bg-opacity: 0.5;
 }
 
 .light .highlight-color--green {
-    background-color: rgba(var(--green-rgb), var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.5;
+	background-color: rgba(var(--ctp-latte-green-raw), var(--tw-bg-opacity));
+	color: var(--ctp-latte-text);
+	--tw-bg-opacity: 0.5;
+}
+#search-results__no-results {
+	color: var(--ctp-latte-text);
 }
 
-#search-results__no-results {
-    color: var(--text);
+.light .rn-code-node .rich-text-editor .EditorContainer {
+	background-color: var(--ctp-latte-surface0);
+}
+
+.light .light\:text-gray-100 {
+	color: var(--ctp-latte-text);
+}
+
+.rn-add-button {
+	color: var(--ctp-latte-text);
+	background-color: var(--ctp-latte-surface0);
+}
+
+.hover\:rn-clr-background-accent--hovered:hover {
+	color: var(--ctp-latte-crust) !important;
+	background: var(--ctp-latte-red) !important;
+}
+
+.mosaic-tile {
+	--rn-clr-background-primary: var(--ctp-latte-base);
 }
