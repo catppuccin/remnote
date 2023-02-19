@@ -51,7 +51,7 @@
 ## 💝 Thanks to
 
 -   [justTOBBI](https://github.com/justTOBBI)
--   [colderinit](https://github.com/colderinit)
+-   [coldenate](https://github.com/coldenate)
 
 &nbsp;
 
