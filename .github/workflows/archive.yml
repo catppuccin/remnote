@@ -39,7 +39,9 @@ jobs:
           mkdir dist
           for f in frappé latte macchiato mocha; do
             cp README.md $f
-            zip -r dist/$f.zip $f/logo.png $f/manifest.json $f/theme.css $f/README.md
+            cd $f
+            zip -r -j ../dist/$f.zip ./*
+            cd ..
           done
 
       - name: upload dist as artifact
