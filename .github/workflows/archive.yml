@@ -37,9 +37,11 @@ jobs:
       - name: zip each theme (frappé, latte, macchiato, mocha)
         run: |
           mkdir dist
-          for folder in frappé latte macchiato mocha; do
-            cp README.md $folder
-            zip -r dist/$folder.zip $folder
+          for f in frappé latte macchiato mocha; do
+            cp README.md $f
+            cd $f
+            zip -r -j ../dist/$f.zip ./*
+            cd ..
           done
 
       - name: upload dist as artifact
