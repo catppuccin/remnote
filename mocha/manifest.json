@@ -8,7 +8,7 @@
 	"version": {
 		"major": 0,
 		"minor": 3,
-		"patch": 1
+		"patch": 2
 	},
 	"theme": ["dark"],
 	"description": "Catppuccin Mocha Theme for Remnote. Requires dark mode.",
