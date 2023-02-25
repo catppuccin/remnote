@@ -36,7 +36,7 @@ jobs:
       - name: place the palette_values.css (assets) into each theme.css
         run: |
           for f in frappe latte macchiato mocha; do
-            sed -i '' -e '/\/\* colors \*\//{
+            sed -i '/\/\* colors \*\//{
               r assets/palette_values.css
               d
             }' $f/theme.css
