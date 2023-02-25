@@ -1,13 +1,15 @@
 /*
-@name           Remnote Catppuccin Latte
+@name           Remnote Catppuccin latte
 @namespace      github.com/catppuccin/remnote
 @version        0.3
 @description    Soothing pastel theme for Remnote
 @author         justTOBBI, colderinit
+
 Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
 */
 
-@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
+/* colors */
 
 .light .bg-gray-5 {
 	background-color: var(--ctp-latte-mantle);
@@ -108,7 +110,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-button {
-	color: var(--ctp-latte-surface1);
+	color: var(--ctp-latte-text);
 }
 
 .rn-button--hovered {
@@ -222,9 +224,26 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .hover\:rn-clr-background-accent--hovered:hover {
 	color: var(--ctp-latte-crust) !important;
-	background: var(--ctp-latte-red) !important;
+	background: var(--ctp-latte-lavender) !important;
 }
 
 .mosaic-tile {
 	--rn-clr-background-primary: var(--ctp-latte-base);
+}
+
+.rn-flashcards-home__top-bar__btn-grp .rn-button--primary {
+	background-color: var(--ctp-latte-lavender);
+}
+
+/* queue */
+
+.rn-queue-container {
+	background: var(--ctp-latte-base);
+}
+.light .light\:rn-clr-background-primary {
+	background: var(--ctp-latte-base);
+}
+
+.rn-queue {
+	background: var(--ctp-latte-surface0);
 }

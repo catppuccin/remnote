@@ -9,7 +9,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 */
 
-@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
+/* colors */
 
 .dark .bg-gray-5 {
 	background-color: var(--ctp-mocha-mantle);
