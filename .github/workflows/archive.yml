@@ -35,7 +35,7 @@ jobs:
 
       - name: fetch latest palette_values.css
         run: |
-          curl -o assets/palette_values.css https://unpkg.com/@catppuccin/palette/css/catppuccin.css
+          curl -L -o assets/palette_values.css https://unpkg.com/@catppuccin/palette/css/catppuccin.css
           cat assets/palette_values.css
 
       - name: place the palette_values.css (assets) into each theme.css
