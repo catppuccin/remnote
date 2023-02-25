@@ -234,3 +234,16 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 .rn-flashcards-home__top-bar__btn-grp .rn-button--primary {
 	background-color: var(--ctp-mocha-lavender);
 }
+
+/* queue */
+
+.rn-queue-container {
+	background: var(--ctp-mocha-base);
+}
+.dark .dark\:rn-clr-background-primary {
+	background: var(--ctp-mocha-base);
+}
+
+.rn-queue {
+	background: var(--ctp-mocha-surface0);
+}
