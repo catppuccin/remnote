@@ -33,11 +33,25 @@ jobs:
       - name: delete dist folder
         run: rm -rf dist
 
+      - name: fetch latest palette_values.css
+        run: |
+          curl -L -o assets/palette_values.css https://unpkg.com/@catppuccin/palette/css/catppuccin.css
+          cat assets/palette_values.css
+
+      - name: place the palette_values.css (assets) into each theme.css
+        run: |
+          for f in frappe latte macchiato mocha; do
+            sed -i '/\/\* colors \*\//{
+              r assets/palette_values.css
+              d
+            }' $f/theme.css
+          done
+
       # Runs a set of commands using the runners shell
-      - name: zip each theme (frappé, latte, macchiato, mocha)
+      - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
           mkdir dist
-          for f in frappé latte macchiato mocha; do
+          for f in frappe latte macchiato mocha; do
             cp README.md $f
             cd $f
             zip -r -j ../dist/$f.zip ./*

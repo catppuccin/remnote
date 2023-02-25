@@ -1,13 +1,15 @@
 /*
-@name           Remnote Catppuccin Frappe
+@name           Remnote Catppuccin frappe
 @namespace      github.com/catppuccin/remnote
 @version        0.3
 @description    Soothing pastel theme for Remnote
 @author         justTOBBI, colderinit
+
 Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
 */
 
-@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
+/* colors */
 
 .dark .bg-gray-5 {
 	background-color: var(--ctp-frappe-mantle);
@@ -23,7 +25,6 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .h-11.w-full {
 	background: var(--ctp-frappe-base);
-
 }
 
 .rn-clr-background-secondary {
@@ -109,7 +110,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-button {
-	color: var(--ctp-frappe-surface1);
+	color: var(--ctp-frappe-text);
 }
 
 .rn-button--hovered {
@@ -223,9 +224,26 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .hover\:rn-clr-background-accent--hovered:hover {
 	color: var(--ctp-frappe-crust) !important;
-	background: var(--ctp-frappe-red) !important;
+	background: var(--ctp-frappe-lavender) !important;
 }
 
 .mosaic-tile {
 	--rn-clr-background-primary: var(--ctp-frappe-base);
+}
+
+.rn-flashcards-home__top-bar__btn-grp .rn-button--primary {
+	background-color: var(--ctp-frappe-lavender);
+}
+
+/* queue */
+
+.rn-queue-container {
+	background: var(--ctp-frappe-base);
+}
+.dark .dark\:rn-clr-background-primary {
+	background: var(--ctp-frappe-base);
+}
+
+.rn-queue {
+	background: var(--ctp-frappe-surface0);
 }
