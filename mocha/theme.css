@@ -247,3 +247,20 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 .rn-queue {
 	background: var(--ctp-mocha-surface0);
 }
+
+@media (max-width: 479px) {
+	.rn-queue {
+		background: var(--ctp-mocha-base);
+	}
+}
+
+.rn-clr-shadow-menu {
+	background: var(--ctp-mocha-surface1) !important;
+}
+
+.rn-clr-shadow-menu .rn-clr-content-secondary {
+	color: var(--ctp-mocha-text);
+}
+.rn-clr-shadow-menu .rn-clr-content-primary {
+	color: var(--ctp-mocha-text);
+}
