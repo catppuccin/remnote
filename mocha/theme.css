@@ -248,14 +248,8 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	background: var(--ctp-mocha-surface0);
 }
 
-@media (max-width: 479px) {
-	.rn-queue {
-		background: var(--ctp-mocha-base);
-	}
-}
-
 .rn-clr-shadow-menu {
-	background: var(--ctp-mocha-surface1) !important;
+	background: var(--ctp-mocha-surface0) !important;
 }
 
 .rn-clr-shadow-menu .rn-clr-content-secondary {
