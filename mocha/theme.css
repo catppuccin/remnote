@@ -264,3 +264,14 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 .rn-clr-shadow-menu .rn-clr-content-primary {
 	color: var(--ctp-mocha-text);
 }
+
+.dark .bg-gray-5[data-rem-tags="pdf-highlight"] {
+	background-color: var(--ctp-mocha-base);
+}
+
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+	background-color: var(--ctp-mocha-surface0);
+}
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
+	background-color: var(--ctp-mocha-surface0) !important;
+}
