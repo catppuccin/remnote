@@ -36,17 +36,21 @@
 
 ## Usage
 
-1. Open Remnote (either the Desktop-, Mobile App or Website)
-2. Search for a new Note with the name `Custom CSS`
-3. Click on `Add Blank CSS Block`
-4. Paste the code from your desired Flavour into the block
-    1. [🌻 Latte](https://github.com/catppuccin/remnote/raw/main/latte/theme.css)
-    2. [🪴 Frappé](https://github.com/catppuccin/remnote/raw/main/frapp%C3%A9/theme.css)
-    3. [🌺 Macchiato](https://github.com/catppuccin/remnote/raw/main/macchiato/theme.css)
-    4. [🌿 Mocha](https://github.com/catppuccin/remnote/raw/main/mocha/theme.css)
-5. ⚠ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
+### RemNote Theme Links
 
-> If custom CSS is preventing the loading of remnote, visit <http://www.remnote.com/notes?disableCustomCSS> ([From CSS Docs](https://plugins.remnote.com/custom-css))
+-   [🌻 Latte](https://remnote.com/plugins/catppuccin-latte)
+-   [🪴 Frappé](https://remnote.com/plugins/catppuccin-frappe)
+-   [🌺 Macchiato](https://remnote.com/plugins/catppuccin-macchiato)
+-   [🌿 Mocha](https://remnote.com/plugins/catppuccin-mocha)
+
+#### Manual Installation Instructions
+
+1. Open Remnote (either the Desktop-, Mobile App or Website)
+2. Navigate to `Plugins and Themes` and check the `Show Themes` box.
+3. Search for your desired theme. (`Catppuccin {Flavor} Theme`)
+4. Click the `Install` button.
+
+⚠ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
 
 ## 💝 Thanks to
 

@@ -177,13 +177,19 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	color: var(--ctp-macchiato-text);
 }
 .dark .highlight-color--orange {
-	background-color: rgba(var(--ctp-macchiato-peach-raw), var(--tw-bg-opacity));
+	background-color: rgba(
+		var(--ctp-macchiato-peach-raw),
+		var(--tw-bg-opacity)
+	);
 	color: var(--ctp-macchiato-text);
 	--tw-bg-opacity: 0.5;
 }
 
 .dark .highlight-color--yellow {
-	background-color: rgba(var(--ctp-macchiato-yellow-raw), var(--tw-bg-opacity));
+	background-color: rgba(
+		var(--ctp-macchiato-yellow-raw),
+		var(--tw-bg-opacity)
+	);
 	color: var(--ctp-macchiato-text);
 	--tw-bg-opacity: 0.5;
 }
@@ -195,13 +201,19 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .dark .highlight-color--purple {
-	background-color: rgba(var(--ctp-macchiato-mauve-raw), var(--tw-bg-opacity));
+	background-color: rgba(
+		var(--ctp-macchiato-mauve-raw),
+		var(--tw-bg-opacity)
+	);
 	color: var(--ctp-macchiato-text);
 	--tw-bg-opacity: 0.5;
 }
 
 .dark .highlight-color--green {
-	background-color: rgba(var(--ctp-macchiato-green-raw), var(--tw-bg-opacity));
+	background-color: rgba(
+		var(--ctp-macchiato-green-raw),
+		var(--tw-bg-opacity)
+	);
 	color: var(--ctp-macchiato-text);
 	--tw-bg-opacity: 0.5;
 }
@@ -246,4 +258,61 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .rn-queue {
 	background: var(--ctp-macchiato-surface0);
+}
+.rn-queue {
+	background: var(--ctp-macchiato-surface0);
+}
+
+.rn-clr-shadow-menu {
+	background: var(--ctp-macchiato-surface0) !important;
+}
+
+.rn-clr-shadow-menu .rn-clr-content-secondary {
+	color: var(--ctp-macchiato-text);
+}
+.rn-clr-shadow-menu .rn-clr-content-primary {
+	color: var(--ctp-macchiato-text);
+}
+
+.dark .bg-gray-5[data-rem-tags="pdf-highlight"] {
+	background-color: var(--ctp-macchiato-base);
+}
+
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+	background-color: var(--ctp-macchiato-surface0);
+}
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
+	background-color: var(--ctp-macchiato-surface0) !important;
+}
+
+/* redefine highlight colors at level 20 */
+
+.dark .bg-red-20 {
+	background-color: var(--ctp-macchiato-red) !important;
+	color: var(--ctp-macchiato-red) !important;
+}
+
+.dark .bg-orange-20 {
+	background-color: var(--ctp-macchiato-peach) !important;
+	color: var(--ctp-macchiato-peach) !important;
+}
+
+.dark .bg-yellow-20 {
+	background-color: var(--ctp-macchiato-yellow) !important;
+	color: var(--ctp-macchiato-yellow) !important;
+}
+
+.dark .bg-cyan-20 {
+	background-color: var(--ctp-macchiato-blue) !important;
+	color: var(--ctp-macchiato-blue) !important;
+}
+
+.dark .bg-purple-20 {
+	background-color: var(--ctp-macchiato-mauve) !important;
+	color: var(--ctp-macchiato-mauve) !important;
+}
+
+.dark .bg-mint-20 {
+	background-color: var(--ctp-macchiato-green) !important;
+	color: var(--ctp-macchiato-green) !important;
 }
