@@ -272,3 +272,34 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
 	background-color: var(--ctp-latte-surface0) !important;
 }
+/* redefine highlight colors at level 20 */
+
+.light .bg-red-20 {
+	background-color: var(--ctp-latte-red) !important;
+	color: var(--ctp-latte-red) !important;
+}
+
+.light .bg-orange-20 {
+	background-color: var(--ctp-latte-peach) !important;
+	color: var(--ctp-latte-peach) !important;
+}
+
+.light .bg-yellow-20 {
+	background-color: var(--ctp-latte-yellow) !important;
+	color: var(--ctp-latte-yellow) !important;
+}
+
+.light .bg-cyan-20 {
+	background-color: var(--ctp-latte-blue) !important;
+	color: var(--ctp-latte-blue) !important;
+}
+
+.light .bg-purple-20 {
+	background-color: var(--ctp-latte-mauve) !important;
+	color: var(--ctp-latte-mauve) !important;
+}
+
+.light .bg-mint-20 {
+	background-color: var(--ctp-latte-green) !important;
+	color: var(--ctp-latte-green) !important;
+}

@@ -284,3 +284,35 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
 	background-color: var(--ctp-macchiato-surface0) !important;
 }
+
+/* redefine highlight colors at level 20 */
+
+.dark .bg-red-20 {
+	background-color: var(--ctp-macchiato-red) !important;
+	color: var(--ctp-macchiato-red) !important;
+}
+
+.dark .bg-orange-20 {
+	background-color: var(--ctp-macchiato-peach) !important;
+	color: var(--ctp-macchiato-peach) !important;
+}
+
+.dark .bg-yellow-20 {
+	background-color: var(--ctp-macchiato-yellow) !important;
+	color: var(--ctp-macchiato-yellow) !important;
+}
+
+.dark .bg-cyan-20 {
+	background-color: var(--ctp-macchiato-blue) !important;
+	color: var(--ctp-macchiato-blue) !important;
+}
+
+.dark .bg-purple-20 {
+	background-color: var(--ctp-macchiato-mauve) !important;
+	color: var(--ctp-macchiato-mauve) !important;
+}
+
+.dark .bg-mint-20 {
+	background-color: var(--ctp-macchiato-green) !important;
+	color: var(--ctp-macchiato-green) !important;
+}
