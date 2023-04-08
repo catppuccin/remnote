@@ -7,6 +7,8 @@ const themes = ["latte", "frappe", "macchiato", "mocha"];
 
 const url = "https://raw.githubusercontent.com/catppuccin/palette/main/less/";
 
+fs.mkdirSync("built");
+
 console.log("Reading theme.less file");
 fs.readFile("src/theme.less", "utf8", (err, data) => {
 	if (err) {
@@ -45,38 +47,43 @@ fs.readFile("src/theme.less", "utf8", (err, data) => {
 					return;
 				}
 				console.log("Creating theme folder");
-				fs.mkdirSync(theme);
+
+				fs.mkdirSync("built/" + theme);
 				console.log("Writing CSS file to theme folder");
-				fs.writeFile(theme + "/theme.css", output.css, (err) => {
-					if (err) {
-						console.error(err);
-						return;
-					}
-					console.log("Copying manifest.json to theme folder");
-					fs.copyFile(
-						"src/manifest.json",
-						theme + "/manifest.json",
-						(err) => {
-							if (err) {
-								console.error(err);
-								return;
-							}
-							console.log("Copying logo.png to theme folder");
-							fs.copyFile(
-								theme === "latte"
-									? "src/wlogo.png"
-									: "src/logo.png",
-								theme + "/logo.png",
-								(err) => {
-									if (err) {
-										console.error(err);
-										return;
-									}
-								}
-							);
+				fs.writeFile(
+					"built/" + theme + "/theme.css",
+					output.css,
+					(err) => {
+						if (err) {
+							console.error(err);
+							return;
 						}
-					);
-				});
+						console.log("Copying manifest.json to theme folder");
+						fs.copyFile(
+							"src/manifest.json",
+							"built/" + theme + "/manifest.json",
+							(err) => {
+								if (err) {
+									console.error(err);
+									return;
+								}
+								console.log("Copying logo.png to theme folder");
+								fs.copyFile(
+									theme === "latte"
+										? "src/wlogo.png"
+										: "src/logo.png",
+									"built/" + theme + "/logo.png",
+									(err) => {
+										if (err) {
+											console.error(err);
+											return;
+										}
+									}
+								);
+							}
+						);
+					}
+				);
 			});
 		});
 	});

@@ -1,0 +1,224 @@
+/*
+@name           Remnote Catppuccin mocha
+@namespace      github.com/catppuccin/remnote
+@version        0.3
+@description    Soothing pastel theme for Remnote
+@author         justTOBBI, colderinit
+
+Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
+*/
+.dark .bg-gray-5 {
+  background-color: #1e2030;
+}
+.dark .cloze {
+  background-color: #363a4f;
+}
+.dark .rich-text-editor__change-cloze-button {
+  background-color: #8aadf4;
+  --tw-bg-opacity: 1;
+}
+.dark .text-yellow-60 {
+  color: #eed49f;
+}
+.dark .highlight-color--red {
+  --tw-bg-opacity: 0.5;
+  background-color: rgba(237, 135, 150, var(--tw-bg-opacity));
+  color: #cad3f5;
+}
+.dark .highlight-color--orange {
+  background-color: rgba(245, 169, 127, var(--tw-bg-opacity));
+  color: #cad3f5;
+  --tw-bg-opacity: 0.5;
+}
+.dark .highlight-color--yellow {
+  background-color: rgba(238, 212, 159, var(--tw-bg-opacity));
+  color: #cad3f5;
+  --tw-bg-opacity: 0.5;
+}
+.dark .highlight-color--blue {
+  background-color: rgba(138, 173, 244, var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
+  color: #cad3f5;
+}
+.dark .highlight-color--purple {
+  background-color: rgba(198, 160, 246, var(--tw-bg-opacity));
+  color: #cad3f5;
+  --tw-bg-opacity: 0.5;
+}
+.dark .highlight-color--green {
+  background-color: rgba(166, 218, 149, var(--tw-bg-opacity));
+  color: #cad3f5;
+  --tw-bg-opacity: 0.5;
+}
+.dark .rn-code-node .rich-text-editor .EditorContainer {
+  background-color: #363a4f;
+}
+.dark .dark\:text-gray-100 {
+  color: #cad3f5;
+}
+.dark .dark\:rn-clr-background-primary {
+  background: #24273a;
+}
+.dark .bg-gray-5[data-rem-tags="pdf-highlight"] {
+  background-color: #24273a;
+}
+.dark .bg-red-20 {
+  background-color: #ed8796 !important;
+  color: #ed8796 !important;
+}
+.dark .bg-orange-20 {
+  background-color: #f5a97f !important;
+  color: #f5a97f !important;
+}
+.dark .bg-yellow-20 {
+  background-color: #eed49f !important;
+  color: #eed49f !important;
+}
+.dark .bg-cyan-20 {
+  background-color: #8aadf4 !important;
+  color: #8aadf4 !important;
+}
+.dark .bg-purple-20 {
+  background-color: #c6a0f6 !important;
+  color: #c6a0f6 !important;
+}
+.dark .bg-mint-20 {
+  background-color: #a6da95 !important;
+  color: #a6da95 !important;
+}
+#document-sidebar {
+  background-color: #181926;
+}
+.rn-clr-background-primary {
+  background-color: #24273a;
+}
+.h-11.w-full {
+  background: #24273a;
+}
+.rn-clr-background-secondary {
+  background-color: #181926;
+}
+.rn-clr-background-tertiary {
+  background-color: #1e2030;
+}
+.rn-clr-background {
+  background-color: #24273a;
+}
+.rn-clr-background-accent {
+  background-color: #5b6078;
+}
+.rn-clr-background-accent--hovered {
+  background: #6e738d;
+  background-color: #6e738d;
+}
+.rn-clr-background-light-accent {
+  background-color: #5b6078;
+}
+.rn-pane {
+  background-color: #24273a;
+}
+.rn-pane__body {
+  background-color: #24273a;
+}
+.rn-pane__top-bar {
+  background-color: #24273a;
+}
+.rn-editor__rem__body__text {
+  color: #cad3f5;
+}
+.rn-editor__rem__body {
+  background-color: #24273a;
+}
+.rn-clr-content-primary {
+  color: #cad3f5;
+}
+.rn-clr-content-accent {
+  color: #b8c0e0;
+}
+.rn-clr-content-tertiary {
+  color: #a5adcb;
+}
+.top-bar-container {
+  background-color: #24273a;
+}
+.cloze {
+  border-bottom-color: #8aadf4;
+}
+.rn-rem-reference {
+  color: #8aadf4;
+}
+.rn-button {
+  color: #cad3f5;
+}
+.rn-button--hovered {
+  color: #5b6078;
+}
+.rn-editor__rem__body--red {
+  color: #ed8796;
+}
+.rn-editor__rem__body--orange {
+  color: #f5a97f;
+}
+.rn-editor__rem__body--yellow {
+  color: #eed49f;
+}
+.rn-editor__rem__body--blue {
+  color: #8aadf4;
+}
+.rn-editor__rem__body--purple {
+  color: #c6a0f6;
+}
+.rn-editor__rem__body--green {
+  color: #a6da95;
+}
+.rn-omnibar {
+  background-color: #8087a2;
+}
+.rn-menu {
+  background-color: #939ab7;
+}
+.rn-dialog-overlay {
+  background-color: #6e738d;
+}
+.rn-clr-background-elevation-10 {
+  background: #363a4f;
+}
+#search-results__no-results {
+  color: #cad3f5;
+}
+.rn-add-button {
+  color: #cad3f5;
+  background-color: #363a4f;
+}
+.hover\:rn-clr-background-accent--hovered:hover {
+  color: #181926 !important;
+  background: #b7bdf8 !important;
+}
+.mosaic-tile {
+  --rn-clr-background-primary: #24273a;
+}
+.rn-flashcards-home__top-bar__btn-grp .rn-button--primary {
+  background-color: #b7bdf8;
+}
+.rn-queue-container {
+  background: #24273a;
+}
+.rn-queue {
+  background: #363a4f;
+}
+.rn-clr-shadow-menu {
+  background: #363a4f !important;
+}
+.rn-clr-shadow-menu .rn-clr-content-secondary {
+  color: #cad3f5;
+}
+.rn-clr-shadow-menu .rn-clr-content-primary {
+  color: #cad3f5;
+}
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+  background-color: #363a4f;
+}
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
+  background-color: #363a4f !important;
+}

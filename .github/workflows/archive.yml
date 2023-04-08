@@ -46,7 +46,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
-          cd themes
+          cd themes/built
           for d in */ ; do
             cd $d
             zip -r ../../dist/$d.zip .
