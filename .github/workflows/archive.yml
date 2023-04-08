@@ -31,19 +31,20 @@ jobs:
       - name: delete dist folder
         run: rm -rf dist
 
-      - name: compile less into css
-        run: |
-          curl -L -o assets/palette_values.css https://unpkg.com/@catppuccin/palette/css/catppuccin.css
-          cat assets/palette_values.css
+      - name: install node js 19
+        uses: actions/setup-node@v1
+        with:
+          node-version: '19'
 
+      - name: run the build.js script in the root
+        run: node themes/build.js
       # Runs a set of commands using the runners shell
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
-          mkdir dist
-          for f in frappe latte macchiato mocha; do
-            cp README.md $f
-            cd $f
-            zip -r -j ../dist/$f.zip ./*
+          cd themes
+          for d in */ ; do
+            cd $d
+            zip -r ../../dist/$d.zip .
             cd ..
           done
 
