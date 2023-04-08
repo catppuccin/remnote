@@ -51,6 +51,7 @@ jobs:
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
           cd themes
+          cd built
           for d in */ ; do
             zip -r $d.zip $d
             mv $d.zip ../dist
