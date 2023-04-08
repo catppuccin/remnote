@@ -36,6 +36,9 @@ jobs:
         with:
           node-version: '19'
 
+      - name: install dependencies
+        run: npm install
+
       - name: run the build.js script in the root
         run: node themes/build.js
       # Runs a set of commands using the runners shell
