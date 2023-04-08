@@ -3,3 +3,4 @@ mocha/palette_values.css
 assets/palette.css
 node_modules
 .DS_Store
+built
