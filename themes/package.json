@@ -1,7 +1,7 @@
 {
 	"name": "remnote-ctp-port-personal",
 	"version": "1.0.0",
-	"main": "build.js",
+	"main": "index",
 	"repository": "https://github.com/coldenate/remnote.git",
 	"author": "Nathan Solis <66754842+coldenate@users.noreply.github.com>",
 	"license": "MIT",
