@@ -63,6 +63,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          files: themes/dist
+          files: themes/dist/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
