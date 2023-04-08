@@ -59,27 +59,33 @@ fs.readFile("src/theme.less", "utf8", (err, data) => {
 							return;
 						}
 						console.log("Copying manifest.json to theme folder");
-						fs.copyFile(
-							"src/manifest.json",
+						let manifest = fs
+							.readFileSync("src/manifest.template.json", "utf8")
+							.replace(/<theme name>/g, theme)
+							.replace(
+								/<appearance>/g,
+								theme === "latte" ? "light" : "dark"
+							)
+							.replace(
+								/<theme name cap>/g,
+								theme[0].toUpperCase() + theme.slice(1)
+							)
+							.replace(/<authors>/g, "justTOBBI, coldenate");
+						fs.writeFileSync(
 							"built/" + theme + "/manifest.json",
+							manifest
+						);
+						console.log("Copying logo.png to theme folder");
+						fs.copyFile(
+							theme === "latte"
+								? "src/wlogo.png"
+								: "src/logo.png",
+							"built/" + theme + "/logo.png",
 							(err) => {
 								if (err) {
 									console.error(err);
 									return;
 								}
-								console.log("Copying logo.png to theme folder");
-								fs.copyFile(
-									theme === "latte"
-										? "src/wlogo.png"
-										: "src/logo.png",
-									"built/" + theme + "/logo.png",
-									(err) => {
-										if (err) {
-											console.error(err);
-											return;
-										}
-									}
-								);
 							}
 						);
 					}

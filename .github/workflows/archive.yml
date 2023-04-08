@@ -52,9 +52,9 @@ jobs:
         run: |
           cd themes
           cd built
-          for d in */ ; do
-            zip -r $d.zip $d
-            mv $d.zip ../dist
+          for theme in frappe latte macchiato mocha; do
+            zip -r $theme.zip $theme
+            mv $theme.zip ../dist/
           done
 
       # draft a release then publish the dist as the files

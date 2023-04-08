@@ -1,7 +1,7 @@
 {
 	"manifestVersion": 1,
 	"id": "catppuccin-<theme name>",
-	"name": "Catppuccin <theme name> Theme",
+	"name": "Catppuccin <theme name cap> Theme",
 	"author": "<authors>",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": true,
@@ -10,8 +10,8 @@
 		"minor": 3,
 		"patch": 3
 	},
-	"theme": ["dark"],
-	"description": "Catppuccin <theme name> Theme for Remnote.",
+	"theme": ["<appearance>"],
+	"description": "Catppuccin <theme name cap> Theme for Remnote.",
 	"requestNative": false,
 	"requiredScopes": [
 		{
