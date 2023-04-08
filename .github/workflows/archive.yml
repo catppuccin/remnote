@@ -29,7 +29,7 @@ jobs:
 
       # delete dist folder
       - name: delete dist folder
-        run: rm -rf dist
+        run: rm -rf themes/dist
 
       - name: install node js 19
         uses: actions/setup-node@v1
@@ -51,6 +51,7 @@ jobs:
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
           cd themes
+          mkdir dist
           cd built
           for theme in frappe latte macchiato mocha; do
             zip -r $theme.zip $theme
