@@ -7,7 +7,11 @@ const themes = ["latte", "frappe", "macchiato", "mocha"];
 
 const url = "https://raw.githubusercontent.com/catppuccin/palette/main/less/";
 
-fs.mkdirSync("built");
+fs.mkdir("built", { recursive: true }, (err) => {
+	if (err && err.code !== "EEXIST") {
+		throw err;
+	}
+});
 
 console.log("Reading theme.less file");
 fs.readFile("src/theme.less", "utf8", (err, data) => {
@@ -31,7 +35,7 @@ fs.readFile("src/theme.less", "utf8", (err, data) => {
 				return;
 			}
 
-			for (let colorName in variants[theme]) {
+			for (const colorName in variants[theme]) {
 				let color = variants[theme][colorName];
 				body += `@${colorName}-raw: ${color.raw};\n`;
 				body += `@${colorName}-hsl: ${color.hsl};\n`;
@@ -48,7 +52,11 @@ fs.readFile("src/theme.less", "utf8", (err, data) => {
 				}
 				console.log("Creating theme folder");
 
-				fs.mkdirSync("built/" + theme);
+				const dir = "built/" + theme;
+				if (!fs.existsSync(dir)) {
+					fs.mkdirSync(dir);
+				}
+
 				console.log("Writing CSS file to theme folder");
 				fs.writeFile(
 					"built/" + theme + "/theme.css",
