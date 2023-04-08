@@ -6,6 +6,9 @@
 	"author": "Nathan Solis <66754842+coldenate@users.noreply.github.com>",
 	"license": "MIT",
 	"dependencies": {
-		"@catppuccin/palette": "^0.1.8"
+		"@catppuccin/palette": "^0.1.8",
+		"fs": "^0.0.1-security",
+		"less": "^4.1.3",
+		"request": "^2.88.2"
 	}
 }

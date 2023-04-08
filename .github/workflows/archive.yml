@@ -40,7 +40,6 @@ jobs:
         run: |
           cd themes
           npm install
-          npm install request
 
       - name: run the build.js script in the root
         run: node themes/build.js
