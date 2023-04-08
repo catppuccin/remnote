@@ -42,11 +42,19 @@ jobs:
           npm install
 
       - name: run the build.js script in the root
-        run: node themes/build.js
-      # Runs a set of commands using the runners shell
+        run: |
+          cd themes
+          node build.js
+          # Runs a set of commands using the runners shell
+      # zip -r frappe.zip frappe
+      # zip each folder in built directly so there is no ghost directory then move it to themes/dist
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
-          pwd
+          cd themes
+          for d in */ ; do
+            zip -r $d.zip $d
+            mv $d.zip ../dist
+          done
 
       # draft a release then publish the dist as the files
       # - name: release
