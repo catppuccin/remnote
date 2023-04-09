@@ -1,65 +1,58 @@
-# This is a basic workflow to help you get started with Actions
+name: Build and publish release
 
-name: Prepare ZIP Archives
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-#   # Allows you to run this workflow manually from the Actions tab
+    tags:
+      - 'v*'
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  build-themes:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
       - name: install zip
         run: sudo apt-get install zip
 
       # delete dist folder
       - name: delete dist folder
-        run: rm -rf dist
+        run: rm -rf themes/dist
 
-      - name: fetch latest palette_values.css
+      - name: install node js 19
+        uses: actions/setup-node@v1
+        with:
+          node-version: '19'
+
+      - name: install dependencies after cd into themes
         run: |
-          curl -L -o assets/palette_values.css https://unpkg.com/@catppuccin/palette/css/catppuccin.css
-          cat assets/palette_values.css
+          cd themes
+          npm install
 
-      - name: place the palette_values.css (assets) into each theme.css
+      - name: run the build.js script in the root
         run: |
-          for f in frappe latte macchiato mocha; do
-            sed -i '/\/\* colors \*\//{
-              r assets/palette_values.css
-              d
-            }' $f/theme.css
-          done
-
-      # Runs a set of commands using the runners shell
+          cd themes
+          node build.js
+          # Runs a set of commands using the runners shell
+      # zip -r frappe.zip frappe
+      # zips each folder in built directly so there is no ghost directory then move it to themes/dist
       - name: zip each theme (frappe, latte, macchiato, mocha)
         run: |
+          cd themes
           mkdir dist
-          for f in frappe latte macchiato mocha; do
-            cp README.md $f
-            cd $f
-            zip -r -j ../dist/$f.zip ./*
-            cd ..
+          cd built
+          for theme in frappe latte macchiato mocha; do
+            zip -r $theme.zip $theme
+            mv $theme.zip ../dist/
           done
 
-      - name: upload dist as artifact
-        uses: actions/upload-artifact@v2
+      # draft a release then publish the dist as the files
+      - name: release
+        uses: softprops/action-gh-release@v1
         with:
-          name: themes
-          path: dist
+          draft: true
+          files: themes/dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

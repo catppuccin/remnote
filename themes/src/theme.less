@@ -1,0 +1,304 @@
+/*
+@name           Remnote Catppuccin mocha
+@namespace      github.com/catppuccin/remnote
+@version        0.3
+@description    Soothing pastel theme for Remnote
+@author         justTOBBI, colderinit
+
+Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
+*/
+
+@appearance: "appearance";
+
+@{appearance} {
+	.bg-gray-5 {
+		background-color: @mantle;
+	}
+
+	.cloze {
+		background-color: @surface0;
+	}
+
+	.rich-text-editor__change-cloze-button {
+		background-color: @blue;
+		--tw-bg-opacity: 1;
+	}
+
+	.text-yellow-60 {
+		color: @yellow;
+	}
+
+	.highlight-color--red {
+		--tw-bg-opacity: 0.5;
+		background-color: rgba(@red-raw, var(--tw-bg-opacity));
+		color: @text;
+	}
+
+	.highlight-color--orange {
+		background-color: rgba(@peach-raw, var(--tw-bg-opacity));
+		color: @text;
+		--tw-bg-opacity: 0.5;
+	}
+
+	.highlight-color--yellow {
+		background-color: rgba(@yellow-raw, var(--tw-bg-opacity));
+		color: @text;
+		--tw-bg-opacity: 0.5;
+	}
+
+	.highlight-color--blue {
+		background-color: rgba(@blue-raw, var(--tw-bg-opacity));
+		--tw-bg-opacity: 0.5;
+		color: @text;
+	}
+
+	.highlight-color--purple {
+		background-color: rgba(@mauve-raw, var(--tw-bg-opacity));
+		color: @text;
+		--tw-bg-opacity: 0.5;
+	}
+
+	.highlight-color--green {
+		background-color: rgba(@green-raw, var(--tw-bg-opacity));
+		color: @text;
+		--tw-bg-opacity: 0.5;
+	}
+
+	.rn-code-node {
+		.rich-text-editor {
+			.EditorContainer {
+				background-color: @surface0;
+			}
+		}
+	}
+
+	.dark\  {
+		&:text-gray-100 {
+			color: @text;
+		}
+
+		&:rn-clr-background-primary {
+			background: @base;
+		}
+	}
+
+	.bg-gray-5[data-rem-tags="pdf-highlight"] {
+		background-color: @base;
+	}
+
+	.bg-red-20 {
+		background-color: @red !important;
+		color: @red !important;
+	}
+
+	.bg-orange-20 {
+		background-color: @peach !important;
+		color: @peach !important;
+	}
+
+	.bg-yellow-20 {
+		background-color: @yellow !important;
+		color: @yellow !important;
+	}
+
+	.bg-cyan-20 {
+		background-color: @blue !important;
+		color: @blue !important;
+	}
+
+	.bg-purple-20 {
+		background-color: @mauve !important;
+		color: @mauve !important;
+	}
+
+	.bg-mint-20 {
+		background-color: @green !important;
+		color: @green !important;
+	}
+}
+
+#document-sidebar {
+	background-color: @crust;
+}
+
+.rn-clr-background-primary {
+	background-color: @base;
+}
+
+.h-11.w-full {
+	background: @base;
+}
+
+.rn-clr-background-secondary {
+	background-color: @crust;
+}
+
+.rn-clr-background-tertiary {
+	background-color: @mantle;
+}
+
+.rn-clr-background {
+	background-color: @base;
+}
+
+.rn-clr-background-accent {
+	background-color: @surface2;
+}
+
+.rn-clr-background-accent--hovered {
+	background: @overlay0;
+	background-color: @overlay0;
+}
+
+.rn-clr-background-light-accent {
+	background-color: @surface2;
+}
+
+.rn-pane {
+	background-color: @base;
+}
+
+.rn-pane__body {
+	background-color: @base;
+}
+
+.rn-pane__top-bar {
+	background-color: @base;
+}
+
+.rn-editor__rem__body__text {
+	color: @text;
+}
+
+.rn-editor__rem__body {
+	background-color: @base;
+}
+
+.rn-clr-content-primary {
+	color: @text;
+}
+
+.rn-clr-content-accent {
+	color: @subtext1;
+}
+
+.rn-clr-content-tertiary {
+	color: @subtext0;
+}
+
+.top-bar-container {
+	background-color: @base;
+}
+
+.cloze {
+	border-bottom-color: @blue;
+}
+
+.rn-rem-reference {
+	color: @blue;
+}
+
+.rn-button {
+	color: @text;
+}
+
+.rn-button--hovered {
+	color: @surface2;
+}
+
+.rn-editor__rem__body--red {
+	color: @red;
+}
+
+.rn-editor__rem__body--orange {
+	color: @peach;
+}
+
+.rn-editor__rem__body--yellow {
+	color: @yellow;
+}
+
+.rn-editor__rem__body--blue {
+	color: @blue;
+}
+
+.rn-editor__rem__body--purple {
+	color: @mauve;
+}
+
+.rn-editor__rem__body--green {
+	color: @green;
+}
+
+.rn-omnibar {
+	background-color: @overlay1;
+}
+
+.rn-menu {
+	background-color: @overlay2;
+}
+
+.rn-dialog-overlay {
+	background-color: @overlay0;
+}
+
+.rn-clr-background-elevation-10 {
+	background: @surface0;
+}
+
+#search-results__no-results {
+	color: @text;
+}
+
+.rn-add-button {
+	color: @text;
+	background-color: @surface0;
+}
+
+.hover\  {
+	&:rn-clr-background-accent--hovered {
+		&:hover {
+			color: @crust !important;
+			background: @lavender !important;
+		}
+	}
+}
+
+.mosaic-tile {
+	--rn-clr-background-primary: @base;
+}
+
+.rn-flashcards-home__top-bar__btn-grp {
+	.rn-button--primary {
+		background-color: @lavender;
+	}
+}
+
+.rn-queue-container {
+	background: @base;
+}
+
+.rn-queue {
+	background: @surface0;
+}
+
+.rn-clr-shadow-menu {
+	background: @surface0 !important;
+
+	.rn-clr-content-secondary {
+		color: @text;
+	}
+
+	.rn-clr-content-primary {
+		color: @text;
+	}
+}
+
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+	background-color: @surface0;
+}
+
+.rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
+	background-color: @surface0 !important;
+}
