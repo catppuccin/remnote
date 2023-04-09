@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "index",
 	"repository": "https://github.com/coldenate/remnote.git",
-	"author": "Nathan Solis <66754842+coldenate@users.noreply.github.com>",
+	"author": "Nathan Solis <airship.magical_0a@icloud.com>",
 	"license": "MIT",
 	"dependencies": {
 		"@catppuccin/palette": "^0.1.8",
