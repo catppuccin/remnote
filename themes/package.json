@@ -7,7 +7,6 @@
 	"license": "MIT",
 	"dependencies": {
 		"@catppuccin/palette": "^0.1.8",
-		"axios": "^1.3.5",
 		"fs": "^0.0.1-security",
 		"less": "^4.1.3"
 	}
