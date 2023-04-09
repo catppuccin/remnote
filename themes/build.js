@@ -1,10 +1,8 @@
 const less = require("less");
 const fs = require("fs");
-const { variants, labels } = require("@catppuccin/palette");
+const { variants } = require("@catppuccin/palette");
 
 const themes = ["latte", "frappe", "macchiato", "mocha"];
-
-const url = "https://raw.githubusercontent.com/catppuccin/palette/main/less/";
 
 let masterTheme = fs.readFileSync("src/theme.less", "utf8");
 
@@ -102,9 +100,6 @@ themes.forEach(async (theme) => {
 				}
 			});
 		});
-		
-
-
 	} catch (err) {
 		console.error(err);
 	}
