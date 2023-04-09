@@ -94,7 +94,17 @@ themes.forEach(async (theme) => {
 					return;
 				}
 			});
+			console.log("Copy README.md to theme folder");
+			fs.copyFile("README.md", "built/" + theme + "/README.md", (err) => {
+				if (err) {
+					console.error(err);
+					return;
+				}
+			});
 		});
+		
+
+
 	} catch (err) {
 		console.error(err);
 	}
