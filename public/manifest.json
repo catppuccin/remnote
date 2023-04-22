@@ -1,0 +1,22 @@
+{
+	"manifestVersion": 1,
+	"id": "catppuccin",
+	"name": "Catppuccin",
+	"author": "coldenate",
+	"repoUrl": "https://github.com/catppuccin/remnote/tree/main/plugin",
+	"enableOnMobile": true,
+	"version": {
+		"major": 1,
+		"minor": 0,
+		"patch": 0
+	},
+	"theme": ["light", "dark"],
+	"description": "📔 A soothing palette for your RemNote experience!!",
+	"requestNative": false,
+	"requiredScopes": [
+		{
+			"type": "All",
+			"level": "Read"
+		}
+	]
+}
