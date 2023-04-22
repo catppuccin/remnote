@@ -14,7 +14,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 @{appearance} {
 	.bg-gray-5 {
-		background-color: @mantle;
+		background-color: @base;
 	}
 
 	.cloze {
@@ -253,17 +253,12 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-add-button {
-	color: @text;
-	background-color: @surface0;
+	background-color: @accent;
+	color: @crust;
 }
-
-.hover\  {
-	&:rn-clr-background-accent--hovered {
-		&:hover {
-			color: @crust !important;
-			background: @lavender !important;
-		}
-	}
+.hover\:rn-clr-background-accent--hovered:hover {
+	// background: @accent! important;
+	background: darken(@accent-hsl, 10%)! important;
 }
 
 .mosaic-tile {

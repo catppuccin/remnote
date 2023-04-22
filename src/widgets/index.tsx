@@ -112,11 +112,14 @@ async function onActivate(plugin: ReactRNPlugin) {
 	plugin.track(async (reactivePlugin) => {
 		// toast I see you changed the theme
 		const theme: string = await reactivePlugin.settings.getSetting("theme");
+		const accent: string = await reactivePlugin.settings.getSetting(
+			"accent-color"
+		);
 		const masterTheme: string = await fetch(
 			`${plugin.rootURL}theme.less`
 		).then((response) => response.text());
 		let themeFile: string | any;
-		await formTheme(theme, masterTheme)
+		await formTheme(theme, masterTheme, accent)
 			.then((compiledCSS) => {
 				themeFile = compiledCSS;
 			})
@@ -124,6 +127,32 @@ async function onActivate(plugin: ReactRNPlugin) {
 				console.error(error);
 			});
 		await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
+	});
+
+	// command to reload the theme
+	await plugin.app.registerCommand({
+		id: "reload-theme",
+		name: "Reload Catppuccin Theme",
+		description: "Reloads the catppuccin theme",
+		action: async () => {
+			// toast I see you changed the theme
+			const theme: string = await plugin.settings.getSetting("theme");
+			const accent: string = await plugin.settings.getSetting(
+				"accent-color"
+			);
+			const masterTheme: string = await fetch(
+				`${plugin.rootURL}theme.less`
+			).then((response) => response.text());
+			let themeFile: string | any;
+			await formTheme(theme, masterTheme, accent)
+				.then((compiledCSS) => {
+					themeFile = compiledCSS;
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+			await plugin.app.registerCSS("catppuccin-palette", themeFile);
+		},
 	});
 }
 
