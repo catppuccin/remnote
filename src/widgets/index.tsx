@@ -1,13 +1,9 @@
 import {
 	declareIndexPlugin,
 	ReactRNPlugin,
-	EventNamespace,
 	RNPlugin,
-	useLocalStorageState,
-	useSyncedStorageState,
 } from "@remnote/plugin-sdk";
 import { formTheme } from "../funcs/buildLess";
-import React from "react";
 
 // TODO: HANDLE DARK/MODE GETTING AND SETTING WHEN USING LATTE OR NOT USING LATTE
 

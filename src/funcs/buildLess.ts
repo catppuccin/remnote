@@ -1,8 +1,6 @@
 import less from "less";
 import { variants } from "@catppuccin/palette";
 
-const themes = ["latte", "frappe", "macchiato", "mocha"];
-
 function formTheme(theme: string, masterTheme: string, accent: string) {
 	// replace appearance with .light or .dark
 
@@ -31,10 +29,6 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 	palette += `@accent: ${accentColor.hex};\n`;
 
 	themeData = palette + themeData;
-
-	// console.log("Compiling theme: " + themeData);
-
-	let output = "";
 
 	// compile the less file
 	return new Promise((resolve, reject) => {
