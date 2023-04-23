@@ -5,15 +5,12 @@ const themes = ["latte", "frappe", "macchiato", "mocha"];
 
 function formTheme(theme: string, masterTheme: string, accent: string) {
 	// replace appearance with .light or .dark
+
 	let themeData = masterTheme.replace(
 		/"appearance"/g,
 		theme === "latte" ? ".light" : ".dark"
 	);
-
-	themeData = masterTheme.replace(
-		/@accent: @blue;/g,
-		`@accent: @{${accent}};`
-	);
+	themeData = themeData.replace(/@accent: @blue;/g, `@accent: @{${accent}};`);
 
 	// prepend the color palette to the less file
 	let palette = "";

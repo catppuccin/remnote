@@ -11,10 +11,53 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 @appearance: "appearance";
 @accent: @blue;
+.transition-colors {
+	transition-property: color, background-color, border-color, fill, stroke,
+		-webkit-text-decoration-color;
+	transition-property: color, background-color, border-color,
+		text-decoration-color, fill, stroke;
+	transition-property: color, background-color, border-color,
+		text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
 
 @{appearance} {
+	.text-blue-80 {
+		color: @text!important;
+	}
+
 	.bg-gray-5 {
 		background-color: @base;
+	}
+
+	.rn-checkbox--checked {
+		background-color: @surface1;
+		color: @accent;
+		border-color: @accent;
+		transition-property: color, background-color, border-color, fill, stroke,
+			-webkit-text-decoration-color;
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke;
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 150ms;
+		// background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='' d='M 50,50 L 100,100 l 25,0 Z' /%3E%3C/svg%3E");
+	}
+
+	.rn-checkbox--unchecked {
+		color: @accent;
+		background-color: @surface1;
+		border-color: @surface2;
+		transition-property: color, background-color, border-color, fill, stroke,
+			-webkit-text-decoration-color;
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke;
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 150ms;
 	}
 
 	.cloze {
@@ -74,7 +117,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 		}
 	}
 
-	.dark\  {
+	.dark\ {
 		&:text-gray-100 {
 			color: @text;
 		}
@@ -144,12 +187,12 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-clr-background-accent {
-	background-color: @surface2;
+	background-color: @accent;
 }
 
 .rn-clr-background-accent--hovered {
-	background: @overlay0;
-	background-color: @overlay0;
+	background: @accent;
+	background-color: @accent;
 }
 
 .rn-clr-background-light-accent {
@@ -200,12 +243,48 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	color: @blue;
 }
 
+// buttons and toggles and general input controllers
+
 .rn-button {
-	color: @text;
+	color: @text !important;
+	background-color: @mantle;
+	transition: background-color 0.1s ease-in-out;
 }
 
-.rn-button--hovered {
-	color: @surface2;
+.rn-button--primary {
+	color: @crust!important;
+	background-color: @accent;
+}
+.rn-button--primary:hover {
+	color: @crust!important;
+	// darken the color using the hsl thing
+	background-color: darken(@accent-hsl, 10%) !important;
+}
+
+.rn-button:hover {
+	background-color: @surface0;
+	// animate the color transition
+	transition: background-color 0.1s ease-in-out;
+}
+
+.rn-settings__link:hover {
+	background-color: @mantle!important;
+	border-radius: 4px;
+}
+.rn-settings__link.rn-clr-content-accent {
+	color: @accent;
+}
+
+.rn-switch[data-state="checked"] {
+	background-color: @crust!important;
+	border-color: @accent!important;
+	// set border to actually appear
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+.rn-switch {
+	background-color: @crust!important;
+	box-sizing: content-box;
 }
 
 .rn-editor__rem__body--red {
@@ -256,19 +335,14 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	background-color: @accent;
 	color: @crust;
 }
+
 .hover\:rn-clr-background-accent--hovered:hover {
 	// background: @accent! important;
-	background: darken(@accent-hsl, 10%)! important;
+	background: darken(@accent-hsl, 10%) !important;
 }
 
 .mosaic-tile {
 	--rn-clr-background-primary: @base;
-}
-
-.rn-flashcards-home__top-bar__btn-grp {
-	.rn-button--primary {
-		background-color: @lavender;
-	}
 }
 
 .rn-queue-container {
@@ -297,4 +371,14 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
 	background-color: @surface0 !important;
+}
+// little color tab thingy that shows you what tab you are oon
+[data-cy-active="true"] {
+	border-bottom-color: @accent !important;
+}
+
+// links
+
+.text-blue-60 {
+	color: @accent!important;
 }
