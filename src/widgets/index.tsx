@@ -1,5 +1,13 @@
-import { declareIndexPlugin, ReactRNPlugin } from "@remnote/plugin-sdk";
+import {
+	declareIndexPlugin,
+	ReactRNPlugin,
+	EventNamespace,
+	RNPlugin,
+	useLocalStorageState,
+	useSyncedStorageState,
+} from "@remnote/plugin-sdk";
 import { formTheme } from "../funcs/buildLess";
+import React from "react";
 
 // TODO: HANDLE DARK/MODE GETTING AND SETTING WHEN USING LATTE OR NOT USING LATTE
 
@@ -8,7 +16,8 @@ async function onActivate(plugin: ReactRNPlugin) {
 	await plugin.settings.registerDropdownSetting({
 		id: "theme",
 		title: "Catppuccin Flavor",
-		description: "Choose a catppuccin flavor for RemNote to take on!",
+		description:
+			"Choose a catppuccin flavor for RemNote to take on!\n\nNOTE: Latte is only available in light mode!",
 		defaultValue: "mocha",
 		options: [
 			{
@@ -105,28 +114,17 @@ async function onActivate(plugin: ReactRNPlugin) {
 				label: "Sapphire",
 				value: "sapphire",
 			},
+			{
+				key: "13",
+				label: "Mauve",
+				value: "mauve",
+			},
 		],
 	});
 
 	// Each time the setting changes, re-register the text color css.
 	plugin.track(async (reactivePlugin) => {
-		// toast I see you changed the theme
-		const theme: string = await reactivePlugin.settings.getSetting("theme");
-		const accent: string = await reactivePlugin.settings.getSetting(
-			"accent-color"
-		);
-		const masterTheme: string = await fetch(
-			`${plugin.rootURL}theme.less`
-		).then((response) => response.text());
-		let themeFile: string | any;
-		await formTheme(theme, masterTheme, accent)
-			.then((compiledCSS) => {
-				themeFile = compiledCSS;
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-		await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
+		await setTheme(reactivePlugin);
 	});
 
 	// command to reload the theme
@@ -135,25 +133,35 @@ async function onActivate(plugin: ReactRNPlugin) {
 		name: "Reload Catppuccin Theme",
 		description: "Reloads the catppuccin theme",
 		action: async () => {
-			// toast I see you changed the theme
-			const theme: string = await plugin.settings.getSetting("theme");
-			const accent: string = await plugin.settings.getSetting(
-				"accent-color"
-			);
-			const masterTheme: string = await fetch(
-				`${plugin.rootURL}theme.less`
-			).then((response) => response.text());
-			let themeFile: string | any;
-			await formTheme(theme, masterTheme, accent)
-				.then((compiledCSS) => {
-					themeFile = compiledCSS;
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-			await plugin.app.registerCSS("catppuccin-palette", themeFile);
+			await plugin.app.toast("Reloaded theme!");
+			await setTheme(plugin);
 		},
 	});
+
+	async function setTheme(reactivePlugin: RNPlugin) {
+		const theme: string = await reactivePlugin.settings.getSetting("theme");
+		const accent: string = await reactivePlugin.settings.getSetting(
+			"accent-color"
+		);
+
+		const masterTheme: string = await fetch(
+			`${plugin.rootURL}theme.less`
+		).then((response) => response.text());
+		let themeFile: string | any;
+		if (theme === "latte") {
+			plugin.app.toast(
+				"Make sure to enable light mode in your RemNote settings!"
+			);
+		}
+		await formTheme(theme, masterTheme, accent)
+			.then((compiledCSS) => {
+				themeFile = compiledCSS;
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
+	}
 }
 
 async function onDeactivate(_: ReactRNPlugin) {}

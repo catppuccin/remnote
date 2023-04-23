@@ -20,6 +20,8 @@ function formTheme(theme) {
 		theme === "latte" ? ".light" : ".dark"
 	);
 
+	const accent = "blue";
+
 	// prepend the color palette to the less file
 	let palette = "";
 
@@ -30,6 +32,12 @@ function formTheme(theme) {
 		palette += `@${colorName}-rgb: ${color.rgb};\n`;
 		palette += `@${colorName}: ${color.hex};\n`;
 	}
+
+	const accentColor = variants[theme][accent];
+	palette += `@accent-raw: ${accentColor.raw};\n`;
+	palette += `@accent-hsl: ${accentColor.hsl};\n`;
+	palette += `@accent-rgb: ${accentColor.rgb};\n`;
+	palette += `@accent: ${accentColor.hex};\n`;
 
 	themeData = palette + themeData;
 
