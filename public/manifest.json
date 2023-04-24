@@ -11,7 +11,7 @@
 		"patch": 0
 	},
 	"theme": ["light", "dark"],
-	"description": "📔 A soothing palette for your RemNote experience!!",
+	"description": "📔 A soothing pastel theme for your RemNote experience!",
 	"requestNative": false,
 	"requiredScopes": [
 		{
