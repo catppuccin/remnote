@@ -1,10 +1,11 @@
 const less = require("less");
 const fs = require("fs");
 const { variants } = require("@catppuccin/palette");
+const { execSync } = require("child_process");
 
 const themes = ["latte", "frappe", "macchiato", "mocha"];
 
-let masterTheme = fs.readFileSync("src/theme.less", "utf8");
+let masterTheme = fs.readFileSync("../public/theme.less", "utf8");
 
 fs.mkdir("built", { recursive: true }, (err) => {
 	if (err && err.code !== "EEXIST") {
@@ -19,6 +20,8 @@ function formTheme(theme) {
 		theme === "latte" ? ".light" : ".dark"
 	);
 
+	const accent = "blue";
+
 	// prepend the color palette to the less file
 	let palette = "";
 
@@ -29,6 +32,12 @@ function formTheme(theme) {
 		palette += `@${colorName}-rgb: ${color.rgb};\n`;
 		palette += `@${colorName}: ${color.hex};\n`;
 	}
+
+	const accentColor = variants[theme][accent];
+	palette += `@accent-raw: ${accentColor.raw};\n`;
+	palette += `@accent-hsl: ${accentColor.hsl};\n`;
+	palette += `@accent-rgb: ${accentColor.rgb};\n`;
+	palette += `@accent: ${accentColor.hex};\n`;
 
 	themeData = palette + themeData;
 
@@ -47,12 +56,40 @@ function formTheme(theme) {
 	});
 }
 
+function getCurrentGitTag() {
+	try {
+		const tag = execSync("git describe --tags --abbrev=0")
+			.toString()
+			.trim()
+			.replace("v", "");
+		return ([major, minor, patch] = tag.split("."));
+	} catch (error) {
+		console.error("Error getting git tag:", error);
+		return null;
+	}
+}
+
 function formManifest(theme) {
+	// version needs to look like this:
+	// 	"version": {
+	// 	"major": 0,
+	// 	"minor": 4,
+	// 	"patch": 0
+	// },
+	let version; // this needs to end up as a string that looks like { "major": 0, "minor": 4, "patch": 0}
+	// get version from git tag
+	let gitVersion = getCurrentGitTag();
+	version = `{
+		"major": ${gitVersion[0]},
+		"minor": ${gitVersion[1]},
+		"patch": ${gitVersion[2]}
+	}`;
 	let manifest = fs
 		.readFileSync("src/manifest.template.json", "utf8")
 		.replace(/<theme name>/g, theme)
 		.replace(/<appearance>/g, theme === "latte" ? "light" : "dark")
 		.replace(/<theme name cap>/g, theme[0].toUpperCase() + theme.slice(1))
+		.replace(/"<version>"/g, version)
 		.replace(/<authors>/g, "justTOBBI, coldenate");
 
 	return manifest;

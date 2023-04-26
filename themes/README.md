@@ -15,6 +15,11 @@
 	<img src="https://raw.githubusercontent.com/catppuccin/remnote/main/assets/remnote-preview.webp"/>
 </p>
 
+## Notice
+
+This is an individual theme instead of the dynamic theme-plugin called `Catppuccin`. This means that you can only use one theme at a time. If you want to use multiple themes, you can use the [Catppuccin Plugin](https://remnote.com/plugins/catppuccin).
+We are leaving these up for people who want to simplify their RemNote experience and not get confused because the process is a bit more complicated.
+
 ## Previews
 
 <details>
