@@ -3,7 +3,7 @@
 	"id": "catppuccin",
 	"name": "Catppuccin",
 	"author": "coldenate",
-	"repoUrl": "https://github.com/catppuccin/remnote/tree/main/plugin",
+	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": true,
 	"version": {
 		"major": 1,
