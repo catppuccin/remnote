@@ -46,6 +46,7 @@
 
 <details>
 	<summary>📦 Individual Installation</summary>
+
 ### RemNote Theme Links
 
 -   [🌻 Latte](https://remnote.com/plugins/catppuccin-latte)
