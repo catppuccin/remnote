@@ -36,6 +36,11 @@ async function onActivate(plugin: ReactRNPlugin) {
 				label: "Macchiato",
 				value: "macchiato",
 			},
+			{
+				key: "4",
+				label: "Americano",
+				value: "americano",
+			},
 		],
 	});
 
@@ -169,6 +174,15 @@ async function onActivate(plugin: ReactRNPlugin) {
 		description: "Sets the catppuccin theme to macchiato",
 		action: async () => {
 			await setTheme(plugin, "macchiato");
+		},
+	});
+
+	await plugin.app.registerCommand({
+		id: "set-americano",
+		name: "Set Catppuccin Theme to Americano",
+		description: "Sets the catppuccin theme to americano",
+		action: async () => {
+			await setTheme(plugin, "americano");
 		},
 	});
 
