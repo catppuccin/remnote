@@ -35,6 +35,11 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 		background-color: @base;
 	}
 
+	.bg-primary-70 {
+		--tw-bg-opacity: 1;
+		background-color: rgba(@accent-raw, var(--tw-bg-opacity));
+	}
+
 	.rn-checkbox--checked {
 		background-color: @surface1;
 		color: @accent;
@@ -354,7 +359,18 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-queue {
-	background: @surface0;
+	background: @mantle;
+}
+
+// For mobile devices with a maximum width of 768px
+@media (max-width: 768px) {
+	.rn-queue-container {
+		background: @base;
+	}
+
+	.rn-queue {
+		background: @base;
+	}
 }
 
 .rn-clr-shadow-menu {
@@ -412,4 +428,12 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 .w-full.mx-auto.px-5.md\:px-14.py-10 {
 	background-color: @base!important;
+}
+
+// tab selection background color when focused thigny (like all notes, flashcards, and edit later)
+
+.hover\:rn-clr-background-light-accent--hovered:hover {
+	--tw-bg-opacity: 1;
+	background: rgba(@accent-raw, var(--tw-bg-opacity))!important;
+	color: @mantle;
 }

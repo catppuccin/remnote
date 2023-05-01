@@ -35,8 +35,6 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 	// prepend the color palette to the less file
 	let palette = "";
 
-	console.log(theme);
-
 	if (theme === "americano") {
 		americano = true;
 		theme = "mocha";
@@ -66,7 +64,6 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 	palette += `@accent: ${accentColor.hex};\n`;
 
 	themeData = palette + themeData;
-	console.log(themeData);
 	// compile the less file
 	return new Promise((resolve, reject) => {
 		// compile the less file
@@ -75,7 +72,6 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 				console.log(err);
 				reject(err);
 			} else {
-				console.log(output.css);
 				resolve(output.css);
 			}
 		});
