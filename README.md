@@ -36,33 +36,15 @@
 
 ## Usage
 
-### 🌌 New Plugin Installation
+### 📥 Plugin Installation
 
 1. Open Remnote (either the Desktop-, Mobile App or Website)
 2. Navigate to `Plugins and Themes` and check the `Show Themes` box.
 3. Search for **Catppuccin** and click the `Install` button.
 4. Navigate to `Plugin Settings` and scroll to `Catppuccin`.
-5. *Customize to your liking!*
+5. _Customize to your liking!_
 
-<details>
-	<summary>📦 Individual Installation</summary>
-
-### RemNote Theme Links
-
--   [🌻 Latte](https://remnote.com/plugins/catppuccin-latte)
--   [🪴 Frappé](https://remnote.com/plugins/catppuccin-frappe)
--   [🌺 Macchiato](https://remnote.com/plugins/catppuccin-macchiato)
--   [🌿 Mocha](https://remnote.com/plugins/catppuccin-mocha)
-
-#### Manual Installation Instructions
-
-1. Open Remnote (either the Desktop-, Mobile App or Website)
-2. Navigate to `Plugins and Themes` and check the `Show Themes` box.
-3. Search for your desired theme. (`Catppuccin {Flavor} Theme`)
-4. Click the `Install` button.
-  </details>
- <br>
- ⚠ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
+⚠️ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
 
 ## 💝 Thanks to
 
