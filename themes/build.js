@@ -5,7 +5,7 @@ const { execSync } = require("child_process");
 
 const themes = ["latte", "frappe", "macchiato", "mocha"];
 
-let masterTheme = fs.readFileSync("../public/theme.less", "utf8");
+let masterTheme = fs.readFileSync("./theme.less", "utf8");
 
 fs.mkdir("built", { recursive: true }, (err) => {
 	if (err && err.code !== "EEXIST") {

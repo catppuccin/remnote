@@ -1,0 +1,439 @@
+/*
+@name           Remnote Catppuccin mocha
+@namespace      github.com/catppuccin/remnote
+@version        0.3
+@description    Soothing pastel theme for Remnote
+@author         justTOBBI, colderinit
+
+Originally cloned from https://github.com/ethomasv/RemNoteTheme
+
+*/
+
+@appearance: "appearance";
+@accent: @blue;
+// .transition-colors {
+// 	transition-property: color, background-color, border-color, fill, stroke,
+// 		-webkit-text-decoration-color;
+// 	transition-property: color, background-color, border-color,
+// 		text-decoration-color, fill, stroke;
+// 	transition-property: color, background-color, border-color,
+// 		text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+// 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// 	transition-duration: 150ms;
+// }
+
+// @{appearance} {
+// 	.text-blue-80 {
+// 		color: @text!important;
+// 	}
+
+// 	.text-gray-100 {
+// 		color: @text;
+// 	}
+
+// 	.bg-gray-5 {
+// 		background-color: @base;
+// 	}
+
+// 	.bg-primary-70 {
+// 		--tw-bg-opacity: 1;
+// 		background-color: rgba(@accent-raw, var(--tw-bg-opacity));
+// 	}
+
+// 	.rn-checkbox--checked {
+// 		background-color: @surface1;
+// 		color: @accent;
+// 		border-color: @accent;
+// 		transition-property: color, background-color, border-color, fill, stroke,
+// 			-webkit-text-decoration-color;
+// 		transition-property: color, background-color, border-color,
+// 			text-decoration-color, fill, stroke;
+// 		transition-property: color, background-color, border-color,
+// 			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+// 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// 		transition-duration: 150ms;
+// 		// background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='' d='M 50,50 L 100,100 l 25,0 Z' /%3E%3C/svg%3E");
+// 	}
+
+// 	.rn-checkbox--unchecked {
+// 		color: @accent;
+// 		background-color: @surface1;
+// 		border-color: @surface2;
+// 		transition-property: color, background-color, border-color, fill, stroke,
+// 			-webkit-text-decoration-color;
+// 		transition-property: color, background-color, border-color,
+// 			text-decoration-color, fill, stroke;
+// 		transition-property: color, background-color, border-color,
+// 			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+// 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// 		transition-duration: 150ms;
+// 	}
+
+// 	.cloze {
+// 		background-color: @surface0;
+// 	}
+
+// 	.rich-text-editor__change-cloze-button {
+// 		background-color: @blue;
+// 		--tw-bg-opacity: 1;
+// 	}
+
+// 	.text-yellow-60 {
+// 		color: @yellow;
+// 	}
+
+// 	.highlight-color--red {
+// 		--tw-bg-opacity: 0.5;
+// 		background-color: rgba(@red-raw, var(--tw-bg-opacity));
+// 		color: @text;
+// 	}
+
+// 	.highlight-color--orange {
+// 		background-color: rgba(@peach-raw, var(--tw-bg-opacity));
+// 		color: @text;
+// 		--tw-bg-opacity: 0.5;
+// 	}
+
+// 	.highlight-color--yellow {
+// 		background-color: rgba(@yellow-raw, var(--tw-bg-opacity));
+// 		color: @text;
+// 		--tw-bg-opacity: 0.5;
+// 	}
+
+// 	.highlight-color--blue {
+// 		background-color: rgba(@blue-raw, var(--tw-bg-opacity));
+// 		--tw-bg-opacity: 0.5;
+// 		color: @text;
+// 	}
+
+// 	.highlight-color--purple {
+// 		background-color: rgba(@mauve-raw, var(--tw-bg-opacity));
+// 		color: @text;
+// 		--tw-bg-opacity: 0.5;
+// 	}
+
+// 	.highlight-color--green {
+// 		background-color: rgba(@green-raw, var(--tw-bg-opacity));
+// 		color: @text;
+// 		--tw-bg-opacity: 0.5;
+// 	}
+
+// 	.rn-code-node {
+// 		.rich-text-editor {
+// 			.EditorContainer {
+// 				background-color: @surface0;
+// 			}
+// 		}
+// 	}
+
+// 	.dark\ {
+// 		&:text-gray-100 {
+// 			color: @text;
+// 		}
+
+// 		&:rn-clr-background-primary {
+// 			background: @base;
+// 		}
+// 	}
+
+// 	.bg-gray-5[data-rem-tags="pdf-highlight"] {
+// 		background-color: @base;
+// 	}
+
+// 	.bg-red-20 {
+// 		background-color: @red !important;
+// 		color: @red !important;
+// 	}
+
+// 	.bg-orange-20 {
+// 		background-color: @peach !important;
+// 		color: @peach !important;
+// 	}
+
+// 	.bg-yellow-20 {
+// 		background-color: @yellow !important;
+// 		color: @yellow !important;
+// 	}
+
+// 	.bg-cyan-20 {
+// 		background-color: @blue !important;
+// 		color: @blue !important;
+// 	}
+
+// 	.bg-purple-20 {
+// 		background-color: @mauve !important;
+// 		color: @mauve !important;
+// 	}
+
+// 	.bg-mint-20 {
+// 		background-color: @green !important;
+// 		color: @green !important;
+// 	}
+// }
+
+// #document-sidebar {
+// 	background-color: @crust;
+// }
+
+// .rn-clr-background-primary {
+// 	background-color: @base;
+// }
+
+// .h-11.w-full {
+// 	background: @base;
+// }
+
+// .rn-clr-background-secondary {
+// 	background-color: @crust;
+// }
+
+// .rn-clr-background-tertiary {
+// 	background-color: @mantle;
+// }
+
+// .rn-clr-background {
+// 	background-color: @base;
+// }
+
+// .rn-clr-background-accent {
+// 	background-color: @accent;
+// }
+
+// .rn-clr-background-accent--hovered {
+// 	background: @accent;
+// 	background-color: @accent;
+// }
+
+// .rn-clr-background-light-accent {
+// 	background-color: @surface2;
+// }
+
+// .rn-pane {
+// 	background-color: @base;
+// }
+
+// .rn-pane__body {
+// 	background-color: @base;
+// }
+
+// .rn-pane__top-bar {
+// 	background-color: @base;
+// }
+
+// .rn-editor__rem__body__text {
+// 	color: @text;
+// }
+
+// .rn-editor__rem__body {
+// 	background-color: @base;
+// }
+
+// .rn-clr-content-primary {
+// 	color: @text;
+// }
+
+// .rn-clr-content-accent {
+// 	color: @subtext1;
+// }
+
+// .rn-clr-content-tertiary {
+// 	color: @subtext0;
+// }
+
+// .top-bar-container {
+// 	background-color: @base;
+// }
+
+// .cloze {
+// 	border-bottom-color: @blue;
+// }
+
+// .rn-rem-reference {
+// 	color: @blue;
+// }
+
+// // buttons and toggles and general input controllers
+
+// .rn-button {
+// 	color: @text !important;
+// 	background-color: @mantle;
+// 	transition: background-color 0.1s ease-in-out;
+// }
+
+// .rn-button--primary {
+// 	color: @crust!important;
+// 	background-color: @accent;
+// }
+// .rn-button--primary:hover {
+// 	color: @crust!important;
+// 	// darken the color using the hsl thing
+// 	background-color: darken(@accent-hsl, 10%) !important;
+// }
+
+// .rn-button:hover {
+// 	background-color: @surface0;
+// 	// animate the color transition
+// 	transition: background-color 0.1s ease-in-out;
+// }
+
+// .rn-settings__link:hover {
+// 	background-color: @mantle!important;
+// 	border-radius: 4px;
+// }
+// .rn-settings__link.rn-clr-content-accent {
+// 	color: @accent;
+// }
+
+// .rn-switch[data-state="checked"] {
+// 	background-color: @crust!important;
+// 	border-color: @accent!important;
+// 	// set border to actually appear
+// 	border-width: 2.1px !important;
+// 	border-style: solid !important;
+// }
+// .rn-switch {
+// 	background-color: @crust!important;
+// 	box-sizing: content-box;
+// }
+
+// .rn-editor__rem__body--red {
+// 	color: @red;
+// }
+
+// .rn-editor__rem__body--orange {
+// 	color: @peach;
+// }
+
+// .rn-editor__rem__body--yellow {
+// 	color: @yellow;
+// }
+
+// .rn-editor__rem__body--blue {
+// 	color: @blue;
+// }
+
+// .rn-editor__rem__body--purple {
+// 	color: @mauve;
+// }
+
+// .rn-editor__rem__body--green {
+// 	color: @green;
+// }
+
+// .rn-omnibar {
+// 	background-color: @overlay1;
+// }
+
+// .rn-menu {
+// 	background-color: @overlay2;
+// }
+
+// .rn-dialog-overlay {
+// 	background-color: @overlay0;
+// }
+
+// .rn-clr-background-elevation-10 {
+// 	background: @surface0;
+// }
+
+// #search-results__no-results {
+// 	color: @text;
+// }
+
+// .rn-add-button {
+// 	background-color: @accent;
+// 	color: @crust;
+// }
+
+// .hover\:rn-clr-background-accent--hovered:hover {
+// 	// background: @accent! important;
+// 	background: darken(@accent-hsl, 10%) !important;
+// }
+
+// .mosaic-tile {
+// 	--rn-clr-background-primary: @base;
+// }
+
+// .rn-queue-container {
+// 	background: @base;
+// }
+
+// .rn-queue {
+// 	background: @mantle;
+// }
+
+// // For mobile devices with a maximum width of 768px
+// @media (max-width: 768px) {
+// 	.rn-queue-container {
+// 		background: @base;
+// 	}
+
+// 	.rn-queue {
+// 		background: @base;
+// 	}
+// }
+
+// .rn-clr-shadow-menu {
+// 	background: @surface0 !important;
+
+// 	.rn-clr-content-secondary {
+// 		color: @text;
+// 	}
+
+// 	.rn-clr-content-primary {
+// 		color: @text;
+// 	}
+// }
+
+// .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+// 	background-color: @surface0;
+// }
+
+// .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
+// 	background-color: @surface0 !important;
+// }
+// // little color tab thingy that shows you what tab you are oon
+// [data-cy-active="true"] {
+// 	border-bottom-color: @accent !important;
+// }
+
+// // links
+
+// .text-blue-60 {
+// 	color: @accent!important;
+// }
+
+// .rn-rem-reference {
+// 	color: @accent;
+// }
+
+// // document previews
+
+// .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
+// 	background-color: @base!important;
+// }
+
+
+// .css-13cymwt-control {
+// 	background-color: @base;
+// }
+
+// .css-t3ipsp-control {
+// 	background-color: @base;
+// }
+
+// // sharing preview
+// .px-4.py-8.box-border.w-full {
+// 	background-color: @base!important;
+// }
+// .w-full.mx-auto.px-5.md\:px-14.py-10 {
+// 	background-color: @base!important;
+// }
+
+// // tab selection background color when focused thigny (like all notes, flashcards, and edit later)
+
+// .hover\:rn-clr-background-light-accent--hovered:hover {
+// 	--tw-bg-opacity: 1;
+// 	background: rgba(@accent-raw, var(--tw-bg-opacity))!important;
+// 	color: @mantle;
+// }
