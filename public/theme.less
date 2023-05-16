@@ -252,6 +252,13 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	color: @blue;
 }
 
+// flashcard logo
+
+.rn-flashcards-home__top-bar.flex.justify-between.items-center.mb-10 .flex.items-center.justify-center {
+	background: linear-gradient(0deg, darken(@accent-hsl, 15%) 1.74%, darken(@accent-hsl, 15%) 100%)!important;
+	color: @crust!important;
+}
+
 // buttons and toggles and general input controllers
 
 .rn-button {
@@ -260,14 +267,16 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	transition: background-color 0.1s ease-in-out;
 }
 
-.rn-button--primary {
+.rn-button--primary,
+.rn-button.rn-button--primary {
 	color: @crust!important;
-	background-color: @accent;
+	background-color: @accent !important;
 }
-.rn-button--primary:hover {
+.rn-button--primary:hover,
+.rn-button.rn-button--primary:hover {
 	color: @crust!important;
 	// darken the color using the hsl thing
-	background-color: darken(@accent-hsl, 10%) !important;
+	background-color: darken(@accent-hsl, 20%) !important;
 }
 
 .rn-button:hover {
@@ -347,7 +356,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 
 .hover\:rn-clr-background-accent--hovered:hover {
 	// background: @accent! important;
-	background: darken(@accent-hsl, 10%) !important;
+	background: darken(@accent-hsl, 20%) !important;
 }
 
 .mosaic-tile {
