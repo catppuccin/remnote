@@ -1,7 +1,7 @@
 <h3 align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
-	Catppuccin for <a href="https://remnote.com">Remnote</a>
+	Catppuccin for <a href="https://remnote.com">RemNote</a>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
@@ -38,7 +38,7 @@
 
 ### 📥 Plugin Installation
 
-1. Open Remnote (either the Desktop-, Mobile App or Website)
+1. Open RemNote (either the Desktop-, Mobile App or Website)
 2. Navigate to `Plugins and Themes` and check the `Show Themes` box.
 3. Search for **Catppuccin** and click the `Install` button.
 4. Navigate to `Plugin Settings` and scroll to `Catppuccin`.

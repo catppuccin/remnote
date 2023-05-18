@@ -2,7 +2,7 @@
 	"manifestVersion": 1,
 	"id": "catppuccin",
 	"name": "Catppuccin",
-	"author": "coldenate",
+	"author": "coldenate, justTOBBI",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": true,
 	"version": {
