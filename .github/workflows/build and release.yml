@@ -1,0 +1,36 @@
+name: Build and make release
+
+on:
+    push:
+        tags:
+            - "*"
+    workflow_dispatch:
+
+jobs:
+    build-themes:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: install node js 19
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "19"
+
+            - name: install dependencies
+              run: |
+                  npm install
+                  npm install -g less
+
+            - name: build
+              run: npm run build
+
+            - name: release
+              uses: softprops/action-gh-release@v1
+              with:
+                  draft: true
+                  files: |
+                      PluginZip.zip
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
