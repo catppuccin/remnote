@@ -209,22 +209,23 @@ async function onActivate(plugin: ReactRNPlugin) {
 			accent = await reactivePlugin.settings.getSetting("accent-color");
 		}
 
+		// sleep for 2 secods FIXME: THIS IS A HACK/WORKAROUND AND SHOULD NOT PERSIST WHEN 1.3 KAJNFKDSJNFKSDJN
+		// https://discord.com/channels/689979930804617224/995328932624744479/1111504182873161738
+		await new Promise((r) => setTimeout(r, 1000));
+
 		// check if the user has set a custom color for the base, crust, or mantle
-		const baseColor: string = await reactivePlugin.settings.getSetting(
-			"catppuccinBaseColor"
-		);
-		const crustColor: string = await reactivePlugin.settings.getSetting(
-			"catppuccinCrustColor"
-		);
-		const mantleColor: string = await reactivePlugin.settings.getSetting(
-			"catppuccinMantleColor"
-		);
+		let baseColor: string | undefined =
+			await reactivePlugin.settings.getSetting("catppuccinBaseColor");
+		let crustColor: string | undefined =
+			await reactivePlugin.settings.getSetting("catppuccinCrustColor");
+		let mantleColor: string | undefined =
+			await reactivePlugin.settings.getSetting("catppuccinMantleColor");
 
 		// package the custom colors into an object
 		const customColors: CustomColors = {
-			base: readHexCode(baseColor),
-			mantle: readHexCode(mantleColor),
-			crust: readHexCode(crustColor),
+			base: readHexCode(baseColor || ""),
+			mantle: readHexCode(mantleColor || ""),
+			crust: readHexCode(crustColor || ""),
 		};
 
 		const masterTheme: string = await fetch(
