@@ -1,0 +1,21 @@
+name: Build and make release
+
+on:
+    push:
+        tags:
+            - "*"
+    workflow_dispatch:
+
+jobs:
+    build-themes:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: release
+              uses: softprops/action-gh-release@v1
+              with:
+                  draft: true
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
