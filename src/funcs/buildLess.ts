@@ -1,5 +1,6 @@
 import less from "less";
 import { variants } from "@catppuccin/palette";
+import tinycolor from "tinycolor2";
 
 const americanoPalette = {
 	base: {
@@ -22,7 +23,16 @@ const americanoPalette = {
 	},
 };
 
-function formTheme(theme: string, masterTheme: string, accent: string) {
+interface CustomColors {
+	[key: string]: string;
+}
+
+function formTheme(
+	theme: string,
+	masterTheme: string,
+	accent: string,
+	customColors: CustomColors
+) {
 	// replace appearance with .light or .dark
 
 	let themeData = masterTheme.replace(
@@ -49,6 +59,20 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 			palette += `@${colorName}: ${americanoPalette[colorName].hex};\n`;
 			continue;
 		}
+
+		if (
+			customColors.hasOwnProperty(colorName) &&
+			customColors[colorName] !== ""
+		) {
+			console.log(customColors[colorName]);
+			let color = tinycolor(customColors[colorName]);
+			palette += `@${colorName}-raw: ${color.toRgbString()};\n`;
+			palette += `@${colorName}-hsl: ${color.toHslString()};\n`;
+			palette += `@${colorName}-rgb: ${color.toRgbString()};\n`;
+			palette += `@${colorName}: ${color.toHexString()};\n`;
+			continue;
+		}
+
 		let color = variants[theme][colorName];
 		palette += `@${colorName}-raw: ${color.raw};\n`;
 		palette += `@${colorName}-hsl: ${color.hsl};\n`;
@@ -79,3 +103,4 @@ function formTheme(theme: string, masterTheme: string, accent: string) {
 }
 
 export { formTheme };
+export type { CustomColors };

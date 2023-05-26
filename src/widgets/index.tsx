@@ -3,7 +3,8 @@ import {
 	ReactRNPlugin,
 	RNPlugin,
 } from "@remnote/plugin-sdk";
-import { formTheme } from "../funcs/buildLess";
+import { CustomColors, formTheme } from "../funcs/buildLess";
+import { variants, labels } from "@catppuccin/palette";
 
 // TODO: HANDLE DARK/MODE GETTING AND SETTING WHEN USING LATTE OR NOT USING LATTE
 
@@ -128,191 +129,73 @@ async function onActivate(plugin: ReactRNPlugin) {
 		await setTheme(reactivePlugin);
 	});
 
-	// command to reload the theme
-	await plugin.app.registerCommand({
-		id: "reload-theme",
-		name: "Reload Catppuccin Theme",
-		description: "Reloads the catppuccin theme",
-		action: async () => {
-			await plugin.app.toast("Reloaded theme!");
-			await setTheme(plugin);
-		},
+	for (let i = 0; i < Object.keys(variants).length; i++) {
+		const variant = Object.keys(variants)[i];
+		await plugin.app.registerCommand({
+			id: `set-${variant}`,
+			name: `Set Catppuccin Theme to ${
+				variant.charAt(0).toUpperCase() + variant.slice(1)
+			}`,
+			description: `Sets the catppuccin theme to ${
+				variant.charAt(0).toUpperCase() + variant.slice(1)
+			}`,
+			action: async () => {
+				await setTheme(plugin, variant);
+			},
+		});
+	}
+
+	for (let i = 0; i < Object.keys(labels).length; i++) {
+		const catColor = Object.keys(labels)[i];
+		await plugin.app.registerCommand({
+			id: "set-${catColor}",
+			name: `Set Catppuccin Accent Color to ${
+				catColor.charAt(0).toUpperCase() + catColor.slice(1)
+			}`,
+			description: `Sets the Catppuccin Accent Color to ${
+				catColor.charAt(0).toUpperCase() + catColor.slice(1)
+			}`,
+			action: async () => {
+				await setTheme(plugin, undefined, catColor);
+			},
+		});
+	}
+
+	// Register a setting to change the catppuccin base
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinBaseColor",
+		title: "Catppuccin Base Color",
+		description:
+			"Use a hex code to override the color in the Catppuccin Palette.",
+		defaultValue: "",
+	});
+	// Register a setting to change the catppuccin crust
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinCrustColor",
+		title: "Catppuccin Crust Color",
+		description:
+			"Use a hex code to override the color in the Catppuccin Palette.",
+		defaultValue: "",
+	});
+	// Register a setting to change the catppuccin mantle
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinMantleColor",
+		title: "Catppuccin Mantle Color",
+		description:
+			"Use a hex code to override the color in the Catppuccin Palette.",
+		defaultValue: "",
 	});
 
-	// commands to set the theme
-
-	await plugin.app.registerCommand({
-		id: "set-mocha",
-		name: "Set Catppuccin Theme to Mocha",
-		description: "Sets the catppuccin theme to mocha",
-		action: async () => {
-			await setTheme(plugin, "mocha");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-latte",
-		name: "Set Catppuccin Theme to Latte",
-		description: "Sets the catppuccin theme to latte",
-		action: async () => {
-			await setTheme(plugin, "latte");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-frappe",
-		name: "Set Catppuccin Theme to Frappé",
-		description: "Sets the catppuccin theme to frappé",
-		action: async () => {
-			await setTheme(plugin, "frappe");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-macchiato",
-		name: "Set Catppuccin Theme to Macchiato",
-		description: "Sets the catppuccin theme to macchiato",
-		action: async () => {
-			await setTheme(plugin, "macchiato");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-americano",
-		name: "Set Catppuccin Theme to Americano",
-		description: "Sets the catppuccin theme to americano",
-		action: async () => {
-			await setTheme(plugin, "americano");
-		},
-	});
-
-	// commands to set the accent color (rosewater, blue, lavender, flamingo, pink, red, maroon, peach, yellow, green, teal, sky, sapphire, mauve)
-
-	await plugin.app.registerCommand({
-		id: "set-rosewater",
-		name: "Set Catppuccin Accent Color to Rosewater",
-		description: "Sets the catppuccin accent color to rosewater",
-		action: async () => {
-			await setTheme(plugin, undefined, "rosewater");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-blue",
-		name: "Set Catppuccin Accent Color to Blue",
-		description: "Sets the catppuccin accent color to blue",
-		action: async () => {
-			await setTheme(plugin, undefined, "blue");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-lavender",
-		name: "Set Catppuccin Accent Color to Lavender",
-		description: "Sets the catppuccin accent color to lavender",
-		action: async () => {
-			await setTheme(plugin, undefined, "lavender");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-flamingo",
-		name: "Set Catppuccin Accent Color to Flamingo",
-		description: "Sets the catppuccin accent color to flamingo",
-		action: async () => {
-			await setTheme(plugin, undefined, "flamingo");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-pink",
-		name: "Set Catppuccin Accent Color to Pink",
-		description: "Sets the catppuccin accent color to pink",
-		action: async () => {
-			await setTheme(plugin, undefined, "pink");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-red",
-		name: "Set Catppuccin Accent Color to Red",
-		description: "Sets the catppuccin accent color to red",
-		action: async () => {
-			await setTheme(plugin, undefined, "red");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-maroon",
-		name: "Set Catppuccin Accent Color to Maroon",
-		description: "Sets the catppuccin accent color to maroon",
-		action: async () => {
-			await setTheme(plugin, undefined, "maroon");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-peach",
-		name: "Set Catppuccin Accent Color to Peach",
-		description: "Sets the catppuccin accent color to peach",
-		action: async () => {
-			await setTheme(plugin, undefined, "peach");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-yellow",
-		name: "Set Catppuccin Accent Color to Yellow",
-		description: "Sets the catppuccin accent color to yellow",
-		action: async () => {
-			await setTheme(plugin, undefined, "yellow");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-green",
-		name: "Set Catppuccin Accent Color to Green",
-		description: "Sets the catppuccin accent color to green",
-		action: async () => {
-			await setTheme(plugin, undefined, "green");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-teal",
-		name: "Set Catppuccin Accent Color to Teal",
-		description: "Sets the catppuccin accent color to teal",
-		action: async () => {
-			await setTheme(plugin, undefined, "teal");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-sky",
-		name: "Set Catppuccin Accent Color to Sky",
-		description: "Sets the catppuccin accent color to sky",
-		action: async () => {
-			await setTheme(plugin, undefined, "sky");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-sapphire",
-		name: "Set Catppuccin Accent Color to Sapphire",
-		description: "Sets the catppuccin accent color to sapphire",
-		action: async () => {
-			await setTheme(plugin, undefined, "sapphire");
-		},
-	});
-
-	await plugin.app.registerCommand({
-		id: "set-mauve",
-		name: "Set Catppuccin Accent Color to Mauve",
-		description: "Sets the catppuccin accent color to mauve",
-		action: async () => {
-			await setTheme(plugin, undefined, "mauve");
-		},
-	});
+	function readHexCode(hexCode: string): string {
+		// reads hex code string that can either have a # or not. Returns a hex code string with a #
+		if (hexCode.charAt(0) === "#") {
+			return hexCode;
+		} else if (hexCode !== "") {
+			return "#" + hexCode;
+		} else {
+			return "";
+		}
+	}
 
 	async function setTheme(
 		reactivePlugin: RNPlugin,
@@ -325,6 +208,24 @@ async function onActivate(plugin: ReactRNPlugin) {
 		if (accent === undefined || accent === null) {
 			accent = await reactivePlugin.settings.getSetting("accent-color");
 		}
+
+		// check if the user has set a custom color for the base, crust, or mantle
+		const baseColor: string = await reactivePlugin.settings.getSetting(
+			"catppuccinBaseColor"
+		);
+		const crustColor: string = await reactivePlugin.settings.getSetting(
+			"catppuccinCrustColor"
+		);
+		const mantleColor: string = await reactivePlugin.settings.getSetting(
+			"catppuccinMantleColor"
+		);
+
+		// package the custom colors into an object
+		const customColors: CustomColors = {
+			base: readHexCode(baseColor),
+			mantle: readHexCode(mantleColor),
+			crust: readHexCode(crustColor),
+		};
 
 		const masterTheme: string = await fetch(
 			`${plugin.rootURL}theme.less`
@@ -343,7 +244,7 @@ async function onActivate(plugin: ReactRNPlugin) {
 		) {
 			return;
 		}
-		await formTheme(theme, masterTheme, accent)
+		await formTheme(theme, masterTheme, accent, customColors)
 			.then((compiledCSS) => {
 				themeFile = compiledCSS;
 			})

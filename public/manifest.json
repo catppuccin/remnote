@@ -2,13 +2,13 @@
 	"manifestVersion": 1,
 	"id": "catppuccin",
 	"name": "Catppuccin",
-	"author": "coldenate, justTOBBI",
+	"author": "coldenate, justTOBBI, and Catppuccin",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": true,
 	"version": {
 		"major": 1,
-		"minor": 1,
-		"patch": 2
+		"minor": 2,
+		"patch": 0
 	},
 	"theme": ["light", "dark"],
 	"description": "📔 A soothing pastel theme for your RemNote experience!",
