@@ -69,12 +69,22 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 		transition-duration: 150ms;
 	}
 
+	// clozes
+
 	.cloze {
-		background-color: @surface0;
+		background-color: fade(@surface2, 30%);
+		border-bottom-color: @accent;
+	}
+	.cloze:hover {
+		border-bottom-color: darken(@accent-hsl, 10%);
 	}
 
 	.rich-text-editor__change-cloze-button {
-		background-color: @blue;
+		background-color: unset;
+	}
+
+	svg[data-icon="chevron-bottom"] {
+		color: @accent!important;
 		--tw-bg-opacity: 1;
 	}
 
@@ -244,12 +254,8 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	background-color: @base;
 }
 
-.cloze {
-	border-bottom-color: @blue;
-}
-
 .rn-rem-reference {
-	color: @blue;
+	color: @accent;
 }
 
 // flashcard logo
