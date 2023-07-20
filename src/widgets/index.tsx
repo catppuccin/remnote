@@ -167,7 +167,6 @@ async function onActivate(plugin: ReactRNPlugin) {
 		title: "Catppuccin Base Color",
 		description:
 			"Use a hex code to override the color in the Catppuccin Palette.",
-		defaultValue: "",
 	});
 	// Register a setting to change the catppuccin crust
 	await plugin.settings.registerStringSetting({
@@ -175,7 +174,6 @@ async function onActivate(plugin: ReactRNPlugin) {
 		title: "Catppuccin Crust Color",
 		description:
 			"Use a hex code to override the color in the Catppuccin Palette.",
-		defaultValue: "",
 	});
 	// Register a setting to change the catppuccin mantle
 	await plugin.settings.registerStringSetting({
@@ -183,7 +181,6 @@ async function onActivate(plugin: ReactRNPlugin) {
 		title: "Catppuccin Mantle Color",
 		description:
 			"Use a hex code to override the color in the Catppuccin Palette.",
-		defaultValue: "",
 	});
 
 	function readHexCode(hexCode: string): string {
