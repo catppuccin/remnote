@@ -124,11 +124,6 @@ async function onActivate(plugin: ReactRNPlugin) {
 		],
 	});
 
-	// Each time the setting changes, re-register the text color css.
-	plugin.track(async (reactivePlugin) => {
-		await setTheme(reactivePlugin);
-	});
-
 	for (let i = 0; i < Object.keys(variants).length; i++) {
 		const variant = Object.keys(variants)[i];
 		await plugin.app.registerCommand({
@@ -183,74 +178,74 @@ async function onActivate(plugin: ReactRNPlugin) {
 			"Use a hex code to override the color in the Catppuccin Palette.",
 	});
 
-	function readHexCode(hexCode: string): string {
-		// reads hex code string that can either have a # or not. Returns a hex code string with a #
-		if (hexCode.charAt(0) === "#") {
-			return hexCode;
-		} else if (hexCode !== "") {
-			return "#" + hexCode;
-		} else {
-			return "";
-		}
+	// Each time the setting changes, re-register the text color css.
+	plugin.track(async (reactivePlugin) => {
+		await setTheme(reactivePlugin);
+	});
+}
+function readHexCode(hexCode: string): string {
+	// reads hex code string that can either have a # or not. Returns a hex code string with a #
+	if (hexCode.charAt(0) === "#") {
+		return hexCode;
+	} else if (hexCode !== "") {
+		return "#" + hexCode;
+	} else {
+		return "";
+	}
+}
+
+async function setTheme(
+	reactivePlugin: RNPlugin,
+	theme?: string | undefined,
+	accent?: string | undefined
+) {
+	if (theme === undefined || theme === null) {
+		theme = await reactivePlugin.settings.getSetting("theme");
+	}
+	if (accent === undefined || accent === null) {
+		accent = await reactivePlugin.settings.getSetting("accent-color");
 	}
 
-	async function setTheme(
-		reactivePlugin: RNPlugin,
-		theme?: string | undefined,
-		accent?: string | undefined
+	// check if the user has set a custom color for the base, crust, or mantle
+	let baseColor: string | undefined =
+		await reactivePlugin.settings.getSetting("catppuccinBaseColor");
+	let crustColor: string | undefined =
+		await reactivePlugin.settings.getSetting("catppuccinCrustColor");
+	let mantleColor: string | undefined =
+		await reactivePlugin.settings.getSetting("catppuccinMantleColor");
+
+	// package the custom colors into an object
+	const customColors: CustomColors = {
+		base: readHexCode(baseColor || ""),
+		mantle: readHexCode(mantleColor || ""),
+		crust: readHexCode(crustColor || ""),
+	};
+
+	const masterTheme: string = await fetch(
+		`${reactivePlugin.rootURL}theme.less`
+	).then((response) => response.text());
+	let themeFile: string | any;
+	if (theme === "latte") {
+		reactivePlugin.app.toast(
+			"Make sure to enable light mode in your RemNote settings!"
+		);
+	}
+	if (
+		theme === null ||
+		theme === undefined ||
+		accent === null ||
+		accent === undefined
 	) {
-		if (theme === undefined || theme === null) {
-			theme = await reactivePlugin.settings.getSetting("theme");
-		}
-		if (accent === undefined || accent === null) {
-			accent = await reactivePlugin.settings.getSetting("accent-color");
-		}
-
-		// sleep for 2 secods FIXME: THIS IS A HACK/WORKAROUND AND SHOULD NOT PERSIST WHEN 1.3 KAJNFKDSJNFKSDJN
-		// https://discord.com/channels/689979930804617224/995328932624744479/1111504182873161738
-		await new Promise((r) => setTimeout(r, 1000));
-
-		// check if the user has set a custom color for the base, crust, or mantle
-		let baseColor: string | undefined =
-			await reactivePlugin.settings.getSetting("catppuccinBaseColor");
-		let crustColor: string | undefined =
-			await reactivePlugin.settings.getSetting("catppuccinCrustColor");
-		let mantleColor: string | undefined =
-			await reactivePlugin.settings.getSetting("catppuccinMantleColor");
-
-		// package the custom colors into an object
-		const customColors: CustomColors = {
-			base: readHexCode(baseColor || ""),
-			mantle: readHexCode(mantleColor || ""),
-			crust: readHexCode(crustColor || ""),
-		};
-
-		const masterTheme: string = await fetch(
-			`${plugin.rootURL}theme.less`
-		).then((response) => response.text());
-		let themeFile: string | any;
-		if (theme === "latte") {
-			plugin.app.toast(
-				"Make sure to enable light mode in your RemNote settings!"
-			);
-		}
-		if (
-			theme === null ||
-			theme === undefined ||
-			accent === null ||
-			accent === undefined
-		) {
-			return;
-		}
-		await formTheme(theme, masterTheme, accent, customColors)
-			.then((compiledCSS) => {
-				themeFile = compiledCSS;
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-		await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
+		return;
 	}
+	await formTheme(theme, masterTheme, accent, customColors)
+		.then((compiledCSS) => {
+			themeFile = compiledCSS;
+		})
+		.catch((error) => {
+			console.error(error);
+		});
+	await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
 }
 
 async function onDeactivate(_: ReactRNPlugin) {}
