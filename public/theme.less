@@ -1,15 +1,5 @@
-/*
-@name           Remnote Catppuccin mocha
-@namespace      github.com/catppuccin/remnote
-@version        0.3
-@description    Soothing pastel theme for Remnote
-@author         justTOBBI, colderinit
-
-Originally cloned from https://github.com/ethomasv/RemNoteTheme
-
-*/
-
 @appearance: "appearance";
+@appearance-no-dot: "appearance-no-dot";
 @accent: @blue;
 .transition-colors {
 	transition-property: color, background-color, border-color, fill, stroke,
@@ -22,7 +12,136 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	transition-duration: 150ms;
 }
 
+:root body@{appearance} {
+	--tw-bg-opacity: .7;
+	--tw-bg-opacity-highlight: var(--tw-bg-opacity);
+	--rn-clr-background-secondary: @mantle;
+	--rn-clr-background-primary: @base;
+	--rn-clr-background-tertiary: @crust;
+	--rn-colors-gray-10: @surface0!important;
+	--rn-clr-content-primary: @text;
+	--rn-clr-border-opaque: @surface1;
+	--bg-mint-20: @green;
+	--bg-purple-20: @mauve;
+	--bg-cyan-20: @blue;
+	--bg-yellow-20: @yellow;
+	--bg-orange-20: @peach;
+	--bg-red-20: @red;
+	--highlight-color-red: @red;
+	--highlight-color-orange: @peach;
+	--highlight-color-yellow: @yellow;
+	--highlight-color-blue: @blue;
+	--highlight-color-purple: @mauve;
+	--highlight-color-green: @green;
+	--rn-clr-background-elevation-50: @surface0;
+	--rn-clr-background-elevation-10: @base;
+}
+
 @{appearance} {
+	// --rn-colors-red-5: @red;
+	// 	--rn-colors-red-10: @red;
+
+	// 	--rn-colors-logoBlue-0: @blue;
+	// 	--rn-colors-logoBlue-5: @blue;
+	// 	--rn-colors-logoBlue-10: @blue;
+	// 	--rn-colors-logoBlue-20: @blue;
+	// 	--rn-colors-logoBlue-30: @blue;
+	// 	--rn-colors-logoBlue-40: @blue;
+	// 	--rn-colors-logoBlue-50: @blue;
+	// 	--rn-colors-logoBlue-60: @blue;
+	// 	--rn-colors-logoBlue-70: @blue;
+	// 	--rn-colors-logoBlue-80: @blue;
+	// 	--rn-colors-logoBlue-90: @blue;
+	// 	--rn-colors-logoBlue-100: @blue;
+
+	// 	--rn-colors-gray-0: @surface0;
+	// 	--rn-colors-gray-5: @surface0;
+	// 	--rn-colors-gray-10: @surface0;
+	// 	--rn-colors-gray-15: @surface0;
+	// 	--rn-colors-gray-20: @surface0;
+		--rn-colors-gray-30: @surface1;
+	// 	--rn-colors-gray-40: @surface1;
+	// 	--rn-colors-gray-50: @overlay0;
+		--rn-colors-gray-60: @overlay2;
+	// 	--rn-colors-gray-70: @overlay1;
+		--rn-colors-gray-80: @text;
+	// 	--rn-colors-gray-90: @overlay2;
+	// 	--rn-colors-gray-100: @overlay2;
+	// 	--rn-colors-primary-0: @accent;
+	// 	--rn-colors-primary-5: @accent;
+	// 	--rn-colors-primary-10: @accent;
+	// 	--rn-colors-primary-20: @accent;
+	// 	--rn-colors-primary-30: @accent;
+	// 	--rn-colors-primary-40: @accent;
+	// 	--rn-colors-primary-50: @accent;
+	// 	--rn-colors-primary-60: @accent;
+	// 	--rn-colors-primary-70: @accent;
+	// 	--rn-colors-primary-80: @accent;
+	// 	--rn-colors-primary-90: @accent;
+	// 	--rn-colors-primary-100: @accent;
+	// 	--rn-colors-editor-gray-0: @surface0;
+	// 	--rn-colors-editor-gray-5: @surface0;
+	// 	--rn-colors-editor-gray-10: @surface0;
+	// 	--rn-colors-editor-gray-15: @surface0;
+	// 	--rn-colors-editor-gray-20: @surface1;
+	// 	--rn-colors-editor-gray-30: @surface1;
+	// 	--rn-colors-editor-gray-40: @surface2;
+	// 	--rn-colors-editor-gray-50: @surface2;
+	// 	--rn-colors-editor-gray-60: @overlay0;
+	// 	--rn-colors-editor-gray-70: @overlay0;
+	// 	--rn-colors-editor-gray-80: @overlay1;
+	// 	--rn-colors-editor-gray-90: @overlay1;
+	// 	--rn-colors-editor-gray-100: @overlay2;
+	// 	--rn-colors-rn-bg-primary-0: @accent;
+	// 	--rn-colors-rn-bg-primary-5: @accent;
+	// 	--rn-colors-rn-bg-primary-10: @accent;
+	// 	--rn-colors-rn-bg-primary-20: @accent;
+	// 	--rn-colors-rn-bg-primary-30: @accent;
+	// 	--rn-colors-rn-bg-primary-40: @accent;
+	// 	--rn-colors-rn-bg-primary-50: @accent;
+	// 	--rn-colors-rn-bg-primary-60: @accent;
+	// 	--rn-colors-rn-bg-primary-70: @accent;
+	// 	--rn-colors-rn-bg-primary-80: @accent;
+	// 	--rn-colors-rn-bg-primary-90: @accent;
+	// 	--rn-colors-rn-bg-primary-100: @accent;
+
+	.text-green-60 {
+		color: @green;
+	}
+
+	@{appearance}\:text-black {
+		color: @text;
+	}
+
+	.text-gray-30 {
+		color: @subtext0;
+	}
+
+	// upload
+
+	@{appearance}\:bg-blue-80 {
+		background-color: @surface1;
+	}
+	@{appearance}\:bg-gray-10 {
+		color: @text!important;
+		background-color: @surface0!important;
+	}
+
+	.border-gray-20 {
+		border-color: @surface1;
+	}
+
+	.border-gray-15 {
+		border-color: @surface1;
+	}
+
+	.rn-clr-content-primary {
+		color: @text;
+	}
+	.rn-divider {
+		--rn-colors-gray-20: @surface1;
+		background-color: @surface1!important;
+	}
 	.text-blue-80 {
 		color: @text!important;
 	}
@@ -35,38 +154,45 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 		background-color: @base;
 	}
 
+	.bg-gray-0 {
+		background-color: @mantle;
+	}
+
 	.bg-primary-70 {
 		--tw-bg-opacity: 1;
 		background-color: rgba(@accent-raw, var(--tw-bg-opacity));
 	}
 
 	.rn-checkbox--checked {
-		background-color: @surface1;
+		background-color: @surface0;
 		color: @accent;
 		border-color: @accent;
 		transition-property: color, background-color, border-color, fill, stroke,
-			-webkit-text-decoration-color;
+			-webkit-text-decoration-color, filter;
 		transition-property: color, background-color, border-color,
-			text-decoration-color, fill, stroke;
+			text-decoration-color, fill, stroke, filter;
 		transition-property: color, background-color, border-color,
-			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+			text-decoration-color, fill, stroke, -webkit-text-decoration-color,
+			filter;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 150ms;
-		// background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='' d='M 50,50 L 100,100 l 25,0 Z' /%3E%3C/svg%3E");
+		transition-duration: 1000ms;
+		background-image: url("data:image/svg+xml,%3Csvg width='22' height='14' viewBox='-2 0 20 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m6.5 12.6-6.1-6 2.2-2.2 3.9 4L13.9.9l2.2 2.2-9.6 9.5Z' fill='CHECKBOX_ACCENT__' /%3E%3C/svg%3E") !important;
+		filter: hue-rotate(0deg);
 	}
 
 	.rn-checkbox--unchecked {
 		color: @accent;
-		background-color: @surface1;
-		border-color: @surface2;
+		background-color: @surface0;
+		border-color: @overlay0;
 		transition-property: color, background-color, border-color, fill, stroke,
-			-webkit-text-decoration-color;
+			-webkit-text-decoration-color, filter;
 		transition-property: color, background-color, border-color,
-			text-decoration-color, fill, stroke;
+			text-decoration-color, fill, stroke, filter;
 		transition-property: color, background-color, border-color,
-			text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+			text-decoration-color, fill, stroke, -webkit-text-decoration-color,
+			filter;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 150ms;
+		transition-duration: 1000ms;
 	}
 
 	// clozes
@@ -84,55 +210,42 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	}
 
 	svg[data-icon="chevron-bottom"] {
-		color: @accent!important;
-		--tw-bg-opacity: 1;
+		color: @mantle!important;
 	}
 
 	.text-yellow-60 {
 		color: @yellow;
 	}
 
-	.highlight-color--red {
-		--tw-bg-opacity: 0.5;
-		background-color: rgba(@red-raw, var(--tw-bg-opacity));
-		color: @text;
-	}
+	.highlight-color {
+		&--red {
+			background-color: rgba(@red-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
+		}
 
-	.highlight-color--orange {
-		background-color: rgba(@peach-raw, var(--tw-bg-opacity));
-		color: @text;
-		--tw-bg-opacity: 0.5;
-	}
+		&--orange {
+			background-color: rgba(@peach-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
+		}
 
-	.highlight-color--yellow {
-		background-color: rgba(@yellow-raw, var(--tw-bg-opacity));
-		color: @text;
-		--tw-bg-opacity: 0.5;
-	}
+		&--yellow {
+			background-color: rgba(@yellow-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
+		}
 
-	.highlight-color--blue {
-		background-color: rgba(@blue-raw, var(--tw-bg-opacity));
-		--tw-bg-opacity: 0.5;
-		color: @text;
-	}
+		&--blue {
+			background-color: rgba(@blue-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
+		}
 
-	.highlight-color--purple {
-		background-color: rgba(@mauve-raw, var(--tw-bg-opacity));
-		color: @text;
-		--tw-bg-opacity: 0.5;
-	}
+		&--purple {
+			background-color: rgba(@mauve-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
+		}
 
-	.highlight-color--green {
-		background-color: rgba(@green-raw, var(--tw-bg-opacity));
-		color: @text;
-		--tw-bg-opacity: 0.5;
-	}
-
-	.rn-code-node {
-		.rich-text-editor {
-			.EditorContainer {
-				background-color: @surface0;
-			}
+		&--green {
+			background-color: rgba(@green-raw, var(--tw-bg-opacity-highlight));
+			color: @text;
 		}
 	}
 
@@ -141,64 +254,39 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 			color: @text;
 		}
 
-		&:rn-clr-background-primary {
-			background: @base;
-		}
+		// &:rn-clr-background-primary {
+		// 	background: @base;
+		// }
 	}
 
 	.bg-gray-5[data-rem-tags="pdf-highlight"] {
 		background-color: @base;
 	}
 
-	.bg-red-20 {
-		background-color: @red !important;
-		color: @red !important;
-	}
 
-	.bg-orange-20 {
-		background-color: @peach !important;
-		color: @peach !important;
-	}
+}
 
-	.bg-yellow-20 {
-		background-color: @yellow !important;
-		color: @yellow !important;
-	}
-
-	.bg-cyan-20 {
-		background-color: @blue !important;
-		color: @blue !important;
-	}
-
-	.bg-purple-20 {
-		background-color: @mauve !important;
-		color: @mauve !important;
-	}
-
-	.bg-mint-20 {
-		background-color: @green !important;
-		color: @green !important;
-	}
+.mosaic-tile {
+	border-color: @surface1;
 }
 
 #document-sidebar {
+	// crust
 	background-color: @crust;
 }
+
+
 
 .rn-clr-background-primary {
 	background-color: @base;
 }
 
-.h-11.w-full {
-	background: @base;
-}
-
 .rn-clr-background-secondary {
-	background-color: @crust;
+	background-color: @mantle;
 }
 
 .rn-clr-background-tertiary {
-	background-color: @mantle;
+	background-color: @crust;
 }
 
 .rn-clr-background {
@@ -218,25 +306,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	background-color: @surface2;
 }
 
-.rn-pane {
-	background-color: @base;
-}
 
-.rn-pane__body {
-	background-color: @base;
-}
-
-.rn-pane__top-bar {
-	background-color: @base;
-}
-
-.rn-editor__rem__body__text {
-	color: @text;
-}
-
-.rn-editor__rem__body {
-	background-color: @base;
-}
 
 .rn-clr-content-primary {
 	color: @text;
@@ -258,12 +328,8 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	color: @accent;
 }
 
-// flashcard logo
 
-.rn-flashcards-home__top-bar.flex.justify-between.items-center.mb-10 .flex.items-center.justify-center {
-	background: linear-gradient(0deg, darken(@accent-hsl, 15%) 1.74%, darken(@accent-hsl, 15%) 100%)!important;
-	color: @crust!important;
-}
+
 
 // buttons and toggles and general input controllers
 
@@ -286,7 +352,7 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-button:hover {
-	background-color: @surface0;
+	background-color: @mantle;
 	// animate the color transition
 	transition: background-color 0.1s ease-in-out;
 }
@@ -311,70 +377,18 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	box-sizing: content-box;
 }
 
-.rn-editor__rem__body--red {
-	color: @red;
-}
-
-.rn-editor__rem__body--orange {
-	color: @peach;
-}
-
-.rn-editor__rem__body--yellow {
-	color: @yellow;
-}
-
-.rn-editor__rem__body--blue {
-	color: @blue;
-}
-
-.rn-editor__rem__body--purple {
-	color: @mauve;
-}
-
-.rn-editor__rem__body--green {
-	color: @green;
-}
-
-.rn-omnibar {
-	background-color: @overlay1;
-}
-
-.rn-menu {
-	background-color: @overlay2;
-}
-
-.rn-dialog-overlay {
-	background-color: @overlay0;
-}
-
-.rn-clr-background-elevation-10 {
-	background: @surface0;
-}
-
-#search-results__no-results {
-	color: @text;
-}
-
-.rn-add-button {
-	background-color: @accent;
-	color: @crust;
-}
-
 .hover\:rn-clr-background-accent--hovered:hover {
 	// background: @accent! important;
 	background: darken(@accent-hsl, 20%) !important;
 }
 
-.mosaic-tile {
-	--rn-clr-background-primary: @base;
+
+.rn-queue {
+	background: var(--rn-clr-background-primary);
 }
 
 .rn-queue-container {
-	background: @base;
-}
-
-.rn-queue {
-	background: @mantle;
+	background-color: var(--rn-clr-background-secondary)!important;
 }
 
 // For mobile devices with a maximum width of 768px
@@ -386,6 +400,11 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 	.rn-queue {
 		background: @base;
 	}
+}
+
+.rn-background-toolbar {
+	// hovering text formatting menu on ipad
+	background-color: @surface0 !important;
 }
 
 .rn-clr-shadow-menu {
@@ -401,9 +420,10 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden.overflow-x-hidden {
-	background-color: @surface0;
+	#search-results__list {
+		background-color: @surface0 !important;
+	}
 }
-
 .rn-popup__content.relative.rn-clr-background-primary.overflow-y-hidden {
 	background-color: @surface0 !important;
 }
@@ -429,26 +449,184 @@ Originally cloned from https://github.com/ethomasv/RemNoteTheme
 }
 
 
-.css-13cymwt-control {
-	background-color: @base;
-}
-
-.css-t3ipsp-control {
-	background-color: @base;
-}
-
-// sharing preview
-.px-4.py-8.box-border.w-full {
-	background-color: @base!important;
-}
-.w-full.mx-auto.px-5.md\:px-14.py-10 {
-	background-color: @base!important;
-}
-
 // tab selection background color when focused thigny (like all notes, flashcards, and edit later)
 
-.hover\:rn-clr-background-light-accent--hovered:hover {
+.hover\:rn-clr-background-light-accent--hovered {
 	--tw-bg-opacity: 1;
-	background: rgba(@accent-raw, var(--tw-bg-opacity))!important;
-	color: @mantle;
+	background: rgba(@accent-raw, var(--tw-bg-opacity)) !important;
+	color: @mantle!important;
+	--rn-clr-content-secondary: @mantle!important;
+}
+
+.hover\:rn-clr-background--hovered:hover {
+	--rn-clr-background--hovered: @mantle;
+}
+
+#search-results__result {
+	color: @text;
+	// background-color: rgba(@overlay0, 0.4);
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+#search-results__result[data-cmdopt-selected="true"] {
+	background-color: rgba(@accent-raw, 0.4);
+}
+
+.pricing-feature-tooltip {
+	background: @surface1!important;
+	color: @text!important;
+}
+
+
+
+svg[data-icon="learning-state-active"] path {
+	fill: @green;
+}
+
+svg[data-icon="learning-state-paused"] path {
+	stroke: @overlay0;
+}
+
+svg[data-icon="learning-state-maintaining"] path {
+	stroke: @yellow;
+}
+
+svg[data-icon="learning-state-maintaining"] circle {
+	fill: @yellow;
+}
+
+svg[data-icon="learning-state-no-priority"] path {
+	stroke: @overlay2;
+}
+
+svg[data-icon="rem-document-@{appearance-no-dot}"] {
+	/* First SVG (data-icon="rem-document-dark") */
+	path[fill="#202024"] {
+		fill: @mantle;
+	}
+	path[stroke="#53535B"] {
+		stroke: @surface1;
+	}
+	path[fill="#53535B"] {
+		fill: @surface1;
+	}
+
+	/* Second SVG (data-icon="rem-document-light") */
+	path[fill="#FCFCFF"] {
+		fill: @mantle;
+	}
+	path[stroke="#CACAD9"] {
+		stroke: @surface1;
+	}
+	path[fill="#CACAD9"] {
+		fill: @surface1;
+	}
+}
+
+svg[data-icon="rem-folder-@{appearance-no-dot}"] {
+	/* First SVG (data-icon="rem-document-dark") */
+	path[fill="#202024"] {
+		fill: @mantle;
+	}
+
+	path[stroke="#53535B"] {
+		stroke: @surface1;
+	}
+	path[fill="#53535B"] {
+		fill: @surface1;
+	}
+
+	/* Second SVG (data-icon="rem-document-light") */
+	path[fill="#FCFCFF"] {
+		fill: @mantle;
+	}
+
+	path[stroke="#CACAD9"] {
+		stroke: @surface1;
+	}
+	path[fill="#CACAD9"] {
+		fill: @surface1;
+	}
+}
+
+svg[data-icon="rem-pdf-@{appearance-no-dot}"] {
+	/* First SVG (data-icon="rem-document-dark") */
+	path[fill="#202024"] {
+		fill: @mantle;
+	}
+	path[stroke="#53535B"] {
+		stroke: @surface1;
+	}
+	path[fill="#53535B"] {
+		fill: @surface1;
+	}
+
+	/* Second SVG (data-icon="rem-document-light") */
+	path[fill="#FCFCFF"] {
+		fill: @mantle;
+	}
+	path[stroke="#CACAD9"] {
+		stroke: @surface1;
+	}
+	path[fill="#CACAD9"] {
+		fill: @surface1;
+	}
+
+	path[fill="#C1C1C7"] {
+		fill: @text;
+	}
+
+	path[fill="#292936"] {
+		fill: @text;
+	}
+}
+
+svg[data-icon="rem-top-level-rem-@{appearance-no-dot}"] {
+	/* First SVG (data-icon="rem-document-dark") */
+	path[fill="#202024"] {
+		fill: @mantle;
+	}
+
+	path[stroke="#53535B"] {
+		stroke: @surface1;
+	}
+	path[fill="#53535B"] {
+		fill: @surface1;
+	}
+
+	/* Second SVG (data-icon="rem-document-light") */
+	path[fill="#FCFCFF"] {
+		fill: @mantle;
+	}
+
+	path[stroke="#CACAD9"] {
+		stroke: @surface1;
+	}
+	path[fill="#CACAD9"] {
+		fill: @surface1;
+	}
+
+	path[fill="#C1C1C7"] {
+		fill: @overlay2;
+	}
+
+	path[fill="#292936"] {
+		fill: @overlay2;
+	}
+}
+
+rect[fill="#202024"] {
+	fill: @mantle;
+}
+
+
+///* Change the color of the scrollbar */
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+/* Change the color of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+	background-color: @overlay2;
 }

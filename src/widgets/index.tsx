@@ -1,4 +1,5 @@
 import {
+	AppEvents,
 	declareIndexPlugin,
 	ReactRNPlugin,
 	RNPlugin,
@@ -124,37 +125,10 @@ async function onActivate(plugin: ReactRNPlugin) {
 		],
 	});
 
-	for (let i = 0; i < Object.keys(variants).length; i++) {
-		const variant = Object.keys(variants)[i];
-		await plugin.app.registerCommand({
-			id: `set-${variant}`,
-			name: `Set Catppuccin Theme to ${
-				variant.charAt(0).toUpperCase() + variant.slice(1)
-			}`,
-			description: `Sets the catppuccin theme to ${
-				variant.charAt(0).toUpperCase() + variant.slice(1)
-			}`,
-			action: async () => {
-				await setTheme(plugin, variant);
-			},
-		});
-	}
-
-	for (let i = 0; i < Object.keys(labels).length; i++) {
-		const catColor = Object.keys(labels)[i];
-		await plugin.app.registerCommand({
-			id: "set-${catColor}",
-			name: `Set Catppuccin Accent Color to ${
-				catColor.charAt(0).toUpperCase() + catColor.slice(1)
-			}`,
-			description: `Sets the Catppuccin Accent Color to ${
-				catColor.charAt(0).toUpperCase() + catColor.slice(1)
-			}`,
-			action: async () => {
-				await setTheme(plugin, undefined, catColor);
-			},
-		});
-	}
+	plugin.event.addListener(AppEvents.setDarkMode, undefined, (newvalue) => {
+		const isDarkMode: boolean = newvalue["darkMode"];
+		console.log("dark mode: " + isDarkMode);
+	});
 
 	// Register a setting to change the catppuccin base
 	await plugin.settings.registerStringSetting({
@@ -178,11 +152,107 @@ async function onActivate(plugin: ReactRNPlugin) {
 			"Use a hex code to override the color in the Catppuccin Palette.",
 	});
 
+	await plugin.settings.registerBooleanSetting({
+		id: "debug-mode",
+		title: "Debug Mode",
+		description: "Enables debug mode",
+		defaultValue: false,
+	});
+
 	// Each time the setting changes, re-register the text color css.
 	plugin.track(async (reactivePlugin) => {
 		await setTheme(reactivePlugin);
+		await isDebugMode(reactivePlugin).then(async (debugMode) => {
+			if (debugMode) {
+				plugin.app.toast("Debug Mode Enabled; Registering Debug Tools");
+
+				plugin.app.registerCommand({
+					id: "debug-enable-ctp",
+					name: "Enable Catppuccin Theme",
+					quickCode: "ectp",
+					description: "Enables the Catppuccin Theme",
+					action: async () => {
+						await setTheme(plugin);
+					},
+				});
+
+				for (let i = 0; i < Object.keys(labels).length; i++) {
+					const catColor = Object.keys(labels)[i];
+					await plugin.app.registerCommand({
+						id: `set-${catColor}`,
+						name: `Set Catppuccin Accent Color to ${
+							catColor.charAt(0).toUpperCase() + catColor.slice(1)
+						}`,
+						description: `Sets the Catppuccin Accent Color to ${
+							catColor.charAt(0).toUpperCase() + catColor.slice(1)
+						}`,
+						action: async () => {
+							await setTheme(plugin, undefined, catColor);
+						},
+					});
+				}
+
+				for (let i = 0; i < Object.keys(variants).length; i++) {
+					const variant = Object.keys(variants)[i];
+					await plugin.app.registerCommand({
+						id: `set-${variant}`,
+						name: `Set Catppuccin Theme to ${
+							variant.charAt(0).toUpperCase() + variant.slice(1)
+						}`,
+						description: `Sets the catppuccin theme to ${
+							variant.charAt(0).toUpperCase() + variant.slice(1)
+						}`,
+						action: async () => {
+							await setTheme(plugin, variant);
+						},
+					});
+				}
+
+				await plugin.app.registerCommand({
+					id: "debug-disable-ctp",
+					name: "Disable Catppuccin Theme",
+					quickCode: "dctp",
+					description: "Disables the Catppuccin Theme",
+					action: async () => {
+						await plugin.app.registerCSS("catppuccin-palette", "");
+					},
+				});
+
+				await plugin.app.registerCommand({
+					id: "dump-css-clipconsole",
+					name: "Dump CSS to Clipboard and Console",
+					quickCode: "dumpcss",
+					description: "Dumps the CSS to the clipboard and console",
+					action: async () => {
+						const css = await setTheme(plugin);
+						plugin.app.toast("CSS dumped to clipboard and console");
+						console.log(css);
+
+						if (
+							navigator.clipboard &&
+							navigator.clipboard.writeText
+						) {
+							try {
+								await navigator.clipboard.writeText(css);
+							} catch (error) {
+								console.error("Clipboard write failed:", error);
+							}
+						} else {
+							console.error(
+								"Clipboard API is not supported in this browser."
+							);
+						}
+					},
+				});
+			}
+		});
 	});
 }
+
+async function isDebugMode(reactivePlugin: RNPlugin): Promise<boolean> {
+	return await reactivePlugin.settings.getSetting("debug-mode");
+}
+
 function readHexCode(hexCode: string): string {
 	// reads hex code string that can either have a # or not. Returns a hex code string with a #
 	if (hexCode.charAt(0) === "#") {
@@ -246,6 +316,7 @@ async function setTheme(
 			console.error(error);
 		});
 	await reactivePlugin.app.registerCSS("catppuccin-palette", themeFile);
+	return themeFile;
 }
 
 async function onDeactivate(_: ReactRNPlugin) {}

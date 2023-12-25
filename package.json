@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@catppuccin/palette": "^0.2.0",
-		"@remnote/plugin-sdk": "^0.0.32",
+		"@remnote/plugin-sdk": "^0.0.35",
 		"@types/less": "^3.0.3",
 		"@types/tinycolor2": "^1.4.3",
 		"react": "^17.0.2",

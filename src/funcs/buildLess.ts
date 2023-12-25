@@ -35,10 +35,9 @@ function formTheme(
 ) {
 	// replace appearance with .light or .dark
 
-	let themeData = masterTheme.replace(
-		/"appearance"/g,
-		theme === "latte" ? ".light" : ".dark"
-	);
+	let themeData = masterTheme
+		.replace(/"appearance"/g, theme === "latte" ? ".light" : ".dark")
+		.replace(/"appearance-no-dot"/g, theme === "latte" ? "light" : "dark");
 	themeData = themeData.replace(/@accent: @blue;/g, `@accent: @{${accent}};`);
 
 	let americano: boolean = false;
@@ -86,6 +85,10 @@ function formTheme(
 	palette += `@accent-hsl: ${accentColor.hsl};\n`;
 	palette += `@accent-rgb: ${accentColor.rgb};\n`;
 	palette += `@accent: ${accentColor.hex};\n`;
+	//     '@blue-raw: 137, 180, 250;\n' +
+	// '@blue-hsl: hsl(217, 92%, 76%);\n' +
+	// '@blue-rgb: rgb(137, 180, 250);\n' +
+	// '@blue: #89b4fa;\n' +
 
 	themeData = palette + themeData;
 	// compile the less file
@@ -96,7 +99,14 @@ function formTheme(
 				console.log(err);
 				reject(err);
 			} else {
-				resolve(output.css);
+				let css = output.css;
+				const replaceDict = {
+					CHECKBOX_ACCENT__: `${accentColor.hex.replace("#", "%23")}`,
+				};
+				for (const key in replaceDict) {
+					css = css.replace(key, replaceDict[key]);
+				}
+				resolve(css);
 			}
 		});
 	});
