@@ -13,7 +13,7 @@
 }
 
 :root body@{appearance} {
-	--tw-bg-opacity: .7;
+	--tw-bg-opacity: 0.7;
 	--tw-bg-opacity-highlight: var(--tw-bg-opacity);
 	--rn-clr-background-secondary: @mantle;
 	--rn-clr-background-primary: @base;
@@ -59,12 +59,12 @@
 	// 	--rn-colors-gray-10: @surface0;
 	// 	--rn-colors-gray-15: @surface0;
 	// 	--rn-colors-gray-20: @surface0;
-		--rn-colors-gray-30: @surface1;
+	--rn-colors-gray-30: @surface1;
 	// 	--rn-colors-gray-40: @surface1;
 	// 	--rn-colors-gray-50: @overlay0;
-		--rn-colors-gray-60: @overlay2;
+	--rn-colors-gray-60: @overlay2;
 	// 	--rn-colors-gray-70: @overlay1;
-		--rn-colors-gray-80: @text;
+	--rn-colors-gray-80: @text;
 	// 	--rn-colors-gray-90: @overlay2;
 	// 	--rn-colors-gray-100: @overlay2;
 	// 	--rn-colors-primary-0: @accent;
@@ -210,7 +210,8 @@
 	}
 
 	svg[data-icon="chevron-bottom"] {
-		color: @mantle!important;
+		color: @text !important;
+		mix-blend-mode: difference;
 	}
 
 	.text-yellow-60 {
@@ -262,8 +263,6 @@
 	.bg-gray-5[data-rem-tags="pdf-highlight"] {
 		background-color: @base;
 	}
-
-
 }
 
 .mosaic-tile {
@@ -274,8 +273,6 @@
 	// crust
 	background-color: @crust;
 }
-
-
 
 .rn-clr-background-primary {
 	background-color: @base;
@@ -306,8 +303,6 @@
 	background-color: @surface2;
 }
 
-
-
 .rn-clr-content-primary {
 	color: @text;
 }
@@ -327,9 +322,6 @@
 .rn-rem-reference {
 	color: @accent;
 }
-
-
-
 
 // buttons and toggles and general input controllers
 
@@ -382,13 +374,12 @@
 	background: darken(@accent-hsl, 20%) !important;
 }
 
-
 .rn-queue {
 	background: var(--rn-clr-background-primary);
 }
 
 .rn-queue-container {
-	background-color: var(--rn-clr-background-secondary)!important;
+	background-color: var(--rn-clr-background-secondary) !important;
 }
 
 // For mobile devices with a maximum width of 768px
@@ -448,7 +439,6 @@
 	background-color: @base!important;
 }
 
-
 // tab selection background color when focused thigny (like all notes, flashcards, and edit later)
 
 .hover\:rn-clr-background-light-accent--hovered {
@@ -477,8 +467,6 @@
 	background: @surface1!important;
 	color: @text!important;
 }
-
-
 
 svg[data-icon="learning-state-active"] path {
 	fill: @green;
@@ -619,7 +607,6 @@ svg[data-icon="rem-top-level-rem-@{appearance-no-dot}"] {
 rect[fill="#202024"] {
 	fill: @mantle;
 }
-
 
 ///* Change the color of the scrollbar */
 ::-webkit-scrollbar-track {
