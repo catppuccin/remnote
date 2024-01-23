@@ -127,7 +127,7 @@ async function onActivate(plugin: ReactRNPlugin) {
 
 	plugin.event.addListener(AppEvents.setDarkMode, undefined, (newvalue) => {
 		const isDarkMode: boolean = newvalue["darkMode"];
-		console.log("dark mode: " + isDarkMode);
+		// TODO: implement
 	});
 
 	// Register a setting to change the catppuccin base
