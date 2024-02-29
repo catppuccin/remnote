@@ -11,7 +11,7 @@
 		"patch": 2
 	},
 	"theme": ["light", "dark"],
-	"description": "📔 A soothing pastel theme for your RemNote experience!",
+	"description": "Soothing pastel colors for your notes! Includes 4 selectable themes that completely recolor RemNote.",
 	"requestNative": false,
 	"requiredScopes": [
 		{
