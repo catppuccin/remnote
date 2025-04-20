@@ -13,6 +13,16 @@ import { ColorDefinition } from "../types";
  * @returns {boolean} True if dark mode is detected, false for light mode
  */
 export function detectDarkMode(): boolean {
+	// Legacy Strategy 1: Check document body classes (most reliable)
+	if (document && document.body) {
+		const bodyClasses = document.body.className.split(" ");
+		if (bodyClasses.includes("dark")) {
+			return true;
+		} else if (bodyClasses.includes("light")) {
+			return false;
+		}
+	}
+
 	// Strategy: Check media query for system preference
 	if (
 		window.matchMedia &&
@@ -21,17 +31,12 @@ export function detectDarkMode(): boolean {
 		return true;
 	}
 
-	// Legacy Strategy 1: Check document body classes (most reliable)
-	// if (document && document.body) {
-	// 	const bodyClasses = document.body.className.split(" ");
-	// 	if (bodyClasses.includes("dark")) {
-	// 		return true;
-	// 	} else if (bodyClasses.includes("light")) {
-	// 		return false;
-	// 	}
-	// }
-
 	// Default to dark mode as fallback
+	console.warn(
+		"Dark mode detection failed. Defaulting to dark mode.",
+		"Consider checking your system settings.",
+		"Or use the 'auto-switch-theme' setting in the plugin.",
+	);
 	return true;
 }
 
