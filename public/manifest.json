@@ -1,17 +1,17 @@
 {
 	"manifestVersion": 1,
 	"id": "catppuccin",
-	"name": "Catppuccin: Latte, Frappé, Macciato, and Mocha",
+	"name": "Catppuccin: Latte, Frappé, Macchiato, and Mocha",
 	"author": "coldenate, justTOBBI, and Catppuccin",
 	"repoUrl": "https://github.com/catppuccin/remnote",
 	"enableOnMobile": true,
 	"version": {
 		"major": 1,
-		"minor": 3,
-		"patch": 2
+		"minor": 4,
+		"patch": 0
 	},
 	"theme": ["light", "dark"],
-	"description": "Soothing pastel colors for your notes! Includes 4 selectable themes that completely recolor RemNote.",
+	"description": "☕ Customizable, soothing pastel colors for your notes — includes 4 selectable themes that completely recolor RemNote.",
 	"requestNative": false,
 	"requiredScopes": [
 		{
