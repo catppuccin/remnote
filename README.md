@@ -44,8 +44,6 @@
 4. Navigate to `Plugin Settings` and scroll to `Catppuccin`.
 5. _Customize to your liking!_
 
-⚠️ Make sure to set your interface theme Setting to `Light` if you use the Latte Theme and to `Dark` for the other themes
-
 ## 💝 Thanks to
 
 -   [justTOBBI](https://github.com/justTOBBI)
