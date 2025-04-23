@@ -14,31 +14,6 @@ import {
 } from "../utils/themeUtils";
 
 /**
- * Special palette for the "americano" theme variant
- * This is a custom all-black variant built on top of mocha
- */
-const americanoPalette: Record<string, ColorDefinition> = {
-	base: {
-		hex: "#000000",
-		rgb: "rgb(0, 0, 0)",
-		hsl: "hsl(0deg, 0%, 0%)",
-		raw: "0, 0, 0",
-	},
-	mantle: {
-		hex: "#010101",
-		rgb: "rgb(1, 1, 1)",
-		hsl: "hsl(0deg, 0%, 0%, 1)",
-		raw: "1, 1, 1",
-	},
-	crust: {
-		hex: "#020202",
-		rgb: "rgb(2, 2, 2)",
-		hsl: "hsl(0deg, 0%, 1%, 1)",
-		raw: "2, 2, 2",
-	},
-};
-
-/**
  * Builds a theme CSS string based on the specified variant, master theme file, and customizations
  *
  * @param {string} theme - The theme variant name ('mocha', 'latte', etc.)
@@ -61,14 +36,7 @@ export async function formTheme(
 	// Set accent color variable
 	themeData = themeData.replace(/@accent: @blue;/g, `@accent: @{${accent}};`);
 
-	// Handle the special americano variant (black theme based on mocha)
-	let isAmericano = false;
 	let palette = "";
-
-	if (theme === "americano") {
-		isAmericano = true;
-		theme = "mocha"; // Americano is based on mocha
-	}
 
 	// Validate the theme is a valid variant key
 	const themeKey = theme as ThemeVariant;
@@ -83,15 +51,6 @@ export async function formTheme(
 
 	// Generate LESS variables for each color in the theme
 	colorNames.forEach((colorName) => {
-		// Handle americano special cases (override specific colors with black variants)
-		if (isAmericano && ["base", "mantle", "crust"].includes(colorName)) {
-			if (colorName in americanoPalette) {
-				const colorDef = americanoPalette[colorName];
-				palette += generateColorVariables(colorName, colorDef);
-			}
-			return;
-		}
-
 		// Handle custom colors (user overrides)
 		if (customColors[colorName] && customColors[colorName] !== "") {
 			console.log(

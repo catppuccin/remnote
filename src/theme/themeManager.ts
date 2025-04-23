@@ -12,23 +12,17 @@ import { detectDarkMode, normalizeHexCode } from "../utils/themeUtils";
  * Sets the active theme in RemNote
  *
  * @param {RNPlugin} plugin - The RemNote plugin instance
- * @param {string} [theme] - Optional theme variant to use (fallbacks to settings)
- * @param {string} [accent] - Optional accent color to use (fallbacks to settings)
+ * @param {string} theme - Theme variant to use
+ * @param {string} accent - Accent color to use
  * @returns {Promise<string>} - The compiled CSS or empty string if theme application failed
  */
 export async function setTheme(
 	plugin: RNPlugin,
-	theme?: string,
-	accent?: string,
+	theme: string,
+	accent: string,
 ): Promise<string> {
 	try {
-		// Fallback to settings if theme or accent not provided
-		if (theme === undefined || theme === null) {
-			theme = await plugin.settings.getSetting("theme");
-		}
-		if (accent === undefined || accent === null) {
-			accent = await plugin.settings.getSetting("accent-color");
-		}
+		// Apply provided theme and accent directly
 
 		// Get custom color overrides from settings
 		const customColors = await getCustomColors(plugin);
@@ -100,28 +94,26 @@ export async function applyThemeByAppearance(
 	isDarkMode: boolean,
 ): Promise<void> {
 	try {
-		// Get appropriate theme based on dark/light mode with fallbacks
-		const theme = isDarkMode
-			? await plugin.settings.getSetting("dark-theme")
-			: await plugin.settings.getSetting("light-theme");
+		// Fetch theme and accent from settings
+		const [theme, accent] = await Promise.all([
+			plugin.settings.getSetting(
+				isDarkMode ? "dark-theme" : "light-theme",
+			),
+			plugin.settings.getSetting("accent-color"),
+		]);
+		const effectiveTheme =
+			(theme as string) || (isDarkMode ? "mocha" : "latte");
+		const effectiveAccent = (accent as string) || "blue";
 
-		// Fallback to default themes if settings aren't found
-		const effectiveTheme = theme || (isDarkMode ? "mocha" : "latte");
-
-		// Get accent color from settings with fallback
-		const accent =
-			(await plugin.settings.getSetting("accent-color")) || "blue";
-
-		// Apply the theme with type assertions for safety
-		await setTheme(plugin, effectiveTheme as string, accent as string);
-
+		// Apply the theme
+		await setTheme(plugin, effectiveTheme, effectiveAccent);
 		console.log(
 			`Applied theme: ${effectiveTheme} (${isDarkMode ? "dark" : "light"} mode detected)`,
 		);
 	} catch (error) {
 		console.error("Error applying theme by appearance:", error);
-		// Fallback to default theme if there's an error
-		await setTheme(plugin);
+		// Fallback to default theme
+		await setTheme(plugin, "mocha", "blue");
 	}
 }
 
@@ -132,17 +124,13 @@ export async function applyThemeByAppearance(
  * @returns {Promise<void>}
  */
 export async function checkAndApplyTheme(plugin: RNPlugin): Promise<void> {
-	// Detect current appearance mode
 	const isDarkMode = detectDarkMode();
 	console.log(`Theme detection: using ${isDarkMode ? "dark" : "light"} mode`);
-
-	// Check if auto-switching is enabled
 	const autoSwitch = await plugin.settings.getSetting("auto-switch-theme");
-
 	if (autoSwitch) {
 		await applyThemeByAppearance(plugin, isDarkMode);
 	} else {
-		// Apply manually selected theme from settings
-		await setTheme(plugin);
+		// Manual path: apply based on current appearance
+		await applyThemeByAppearance(plugin, isDarkMode);
 	}
 }

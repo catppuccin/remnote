@@ -3,34 +3,16 @@
  * @module settingsManager
  */
 
-import { ReactRNPlugin } from "@remnote/plugin-sdk";
+import { RNPlugin } from "@remnote/plugin-sdk";
 
 /**
  * Registers all plugin settings with RemNote
  * Centralizes the definition of settings to make them easier to maintain
  *
- * @param {ReactRNPlugin} plugin - The RemNote plugin instance
+ * @param {RNPlugin} plugin - The RemNote plugin instance
  * @returns {Promise<void>}
  */
-export async function registerPluginSettings(
-	plugin: ReactRNPlugin,
-): Promise<void> {
-	// Theme variant settings
-	await plugin.settings.registerDropdownSetting({
-		id: "theme",
-		title: "Catppuccin Flavor",
-		description:
-			"Choose a catppuccin flavor for RemNote to take on!\n\nNOTE: Latte is only available in light mode!",
-		defaultValue: "mocha",
-		options: [
-			{ key: "0", label: "Mocha", value: "mocha" },
-			{ key: "1", label: "Latte", value: "latte" },
-			{ key: "2", label: "Frappé", value: "frappe" },
-			{ key: "3", label: "Macchiato", value: "macchiato" },
-			{ key: "4", label: "Americano", value: "americano" },
-		],
-	});
-
+export async function registerPluginSettings(plugin: RNPlugin): Promise<void> {
 	// Auto-switching theme setting
 	await plugin.settings.registerBooleanSetting({
 		id: "auto-switch-theme",
@@ -45,13 +27,13 @@ export async function registerPluginSettings(
 		id: "dark-theme",
 		title: "Dark Theme Flavor",
 		description:
-			"The Catppuccin flavor to use when RemNote is in dark mode",
+			"The Catppuccin flavor to use when RemNote is in dark mode.",
 		defaultValue: "mocha",
 		options: [
-			{ key: "0", label: "Mocha", value: "mocha" },
+			{ key: "1", label: "Mocha", value: "mocha" },
 			{ key: "2", label: "Frappé", value: "frappe" },
 			{ key: "3", label: "Macchiato", value: "macchiato" },
-			{ key: "4", label: "Americano", value: "americano" },
+			{ key: "4", label: "Latte", value: "latte" },
 		],
 	});
 
@@ -60,9 +42,15 @@ export async function registerPluginSettings(
 		id: "light-theme",
 		title: "Light Theme Flavor",
 		description:
-			"The Catppuccin flavor to use when RemNote is in light mode",
+			"The Catppuccin flavor to use when RemNote is in light mode. At the moment, this is only latte. If you want the other flavors, forcefully set your app to dark mode and then the dark theme setting.",
 		defaultValue: "latte",
-		options: [{ key: "1", label: "Latte", value: "latte" }],
+		options: [
+			// TODO: Theoretically, if the user is in light mode environmentally in the app but switches to a frappe macchiato or mocha color, it looks bad because the CSS fights, but the plugin cannot assert to the app to switch the system appearance itself. So we actually shouldn't offer all flavors, even though in the broad organization, other ports do offer all flavors.
+			{ key: "1", label: "Latte", value: "latte" },
+			// { key: "2", label: "Frappé", value: "frappe" },
+			// { key: "3", label: "Macchiato", value: "macchiato" },
+			// { key: "4", label: "Mocha", value: "mocha" },
+		],
 	});
 
 	// Accent color setting
@@ -89,28 +77,6 @@ export async function registerPluginSettings(
 		],
 	});
 
-	// Custom color override settings
-	await plugin.settings.registerStringSetting({
-		id: "catppuccinBaseColor",
-		title: "Catppuccin Base Color",
-		description:
-			"Use a hex code to override the color in the Catppuccin Palette.",
-	});
-
-	await plugin.settings.registerStringSetting({
-		id: "catppuccinCrustColor",
-		title: "Catppuccin Crust Color",
-		description:
-			"Use a hex code to override the color in the Catppuccin Palette.",
-	});
-
-	await plugin.settings.registerStringSetting({
-		id: "catppuccinMantleColor",
-		title: "Catppuccin Mantle Color",
-		description:
-			"Use a hex code to override the color in the Catppuccin Palette.",
-	});
-
 	// Debug mode setting
 	await plugin.settings.registerBooleanSetting({
 		id: "debug-mode",
@@ -118,14 +84,36 @@ export async function registerPluginSettings(
 		description: "Enables debug mode",
 		defaultValue: false,
 	});
+
+	// Custom color override settings
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinBaseColor",
+		title: "Override: Base Color",
+		description:
+			"Use a hex code to override the base color in the Catppuccin Palette.",
+	});
+
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinCrustColor",
+		title: "Override: Crust Color",
+		description:
+			"Use a hex code to override the crust color in the Catppuccin Palette.",
+	});
+
+	await plugin.settings.registerStringSetting({
+		id: "catppuccinMantleColor",
+		title: "Override: Mantle Color",
+		description:
+			"Use a hex code to override the mantle color in the Catppuccin Palette.",
+	});
 }
 
 /**
  * Checks if debug mode is currently enabled
  *
- * @param {ReactRNPlugin} plugin - The RemNote plugin instance
+ * @param {RNPlugin} plugin - The RemNote plugin instance
  * @returns {Promise<boolean>} Whether debug mode is enabled
  */
-export async function isDebugMode(plugin: ReactRNPlugin): Promise<boolean> {
+export async function isDebugMode(plugin: RNPlugin): Promise<boolean> {
 	return await plugin.settings.getSetting("debug-mode");
 }

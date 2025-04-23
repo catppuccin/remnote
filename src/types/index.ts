@@ -37,12 +37,7 @@ export interface ColorDefinition {
 /**
  * Catppuccin theme variants
  */
-export type ThemeVariant =
-	| "latte"
-	| "frappe"
-	| "macchiato"
-	| "mocha"
-	| "americano";
+export type ThemeVariant = "latte" | "frappe" | "macchiato" | "mocha";
 
 /**
  * Theme context required for applying a theme

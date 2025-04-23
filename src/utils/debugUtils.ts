@@ -3,12 +3,12 @@
  * @module debugUtils
  */
 
-import { ReactRNPlugin } from "@remnote/plugin-sdk";
+import { RNPlugin } from "@remnote/plugin-sdk";
 import { variants, labels } from "@catppuccin/palette";
 import { ThemeDebugInfo } from "../types";
 import { detectDarkMode } from "./themeUtils";
 import { isDebugMode } from "./settingsManager";
-import { setTheme } from "../theme/themeManager";
+import { setTheme, applyThemeByAppearance } from "../theme/themeManager";
 
 // Store interval references for cleanup
 let debugModeCheckInterval: number | null = null;
@@ -16,10 +16,10 @@ let debugModeCheckInterval: number | null = null;
 /**
  * Sets up debug mode functionality including debug commands
  *
- * @param {ReactRNPlugin} plugin - The RemNote plugin instance
+ * @param {RNPlugin} plugin - The RemNote plugin instance
  * @returns {Promise<void>}
  */
-export async function setupDebugMode(plugin: ReactRNPlugin): Promise<void> {
+export async function setupDebugMode(plugin: RNPlugin): Promise<void> {
 	// Check the debug mode setting on initialization
 	const debugModeEnabled = await isDebugMode(plugin);
 
@@ -27,45 +27,10 @@ export async function setupDebugMode(plugin: ReactRNPlugin): Promise<void> {
 		await registerDebugCommands(plugin);
 	}
 
-	// Clear any existing interval
-	if (debugModeCheckInterval !== null) {
-		clearInterval(debugModeCheckInterval);
-	}
-
 	// Monitor changes to debug mode setting by checking periodically
 	// since settings.onChange is not available
 	const initialDebugMode =
 		(await plugin.settings.getSetting("debug-mode")) || false;
-	let currentDebugModeState = initialDebugMode;
-
-	// Set up an interval to check for changes in debug mode
-	debugModeCheckInterval = window.setInterval(async () => {
-		try {
-			const currentDebugMode =
-				(await plugin.settings.getSetting("debug-mode")) || false;
-
-			// If debug mode state changed
-			if (currentDebugMode !== currentDebugModeState) {
-				// Update our tracked state
-				currentDebugModeState = currentDebugMode;
-
-				// If debug mode changed from off to on
-				if (currentDebugMode) {
-					await registerDebugCommands(plugin);
-					plugin.app.toast(
-						"Debug Mode Enabled; Registering Debug Tools",
-					);
-					console.log("Debug mode enabled");
-				} else {
-					console.log("Debug mode disabled");
-					// Note: We can't unregister commands, but we could potentially
-					// implement a no-op for debug commands when debug mode is disabled
-				}
-			}
-		} catch (error) {
-			console.error("Error checking debug mode state:", error);
-		}
-	}, 5000); // Check every 5 seconds
 }
 
 /**
@@ -82,21 +47,10 @@ export function cleanupDebugMode(): void {
  * Registers all debug commands with RemNote
  * Only called when debug mode is enabled
  *
- * @param {ReactRNPlugin} plugin - The RemNote plugin instance
+ * @param {RNPlugin} plugin - The RemNote plugin instance
  * @returns {Promise<void>}
  */
-async function registerDebugCommands(plugin: ReactRNPlugin): Promise<void> {
-	// Enable Catppuccin command
-	await plugin.app.registerCommand({
-		id: "debug-enable-ctp",
-		name: "Enable Catppuccin Theme",
-		quickCode: "ectp",
-		description: "Enables the Catppuccin Theme",
-		action: async () => {
-			await setTheme(plugin);
-		},
-	});
-
+async function registerDebugCommands(plugin: RNPlugin): Promise<void> {
 	// Commands for each accent color
 	for (const catColor of Object.keys(labels)) {
 		await plugin.app.registerCommand({
@@ -108,7 +62,13 @@ async function registerDebugCommands(plugin: ReactRNPlugin): Promise<void> {
 				catColor.charAt(0).toUpperCase() + catColor.slice(1)
 			}`,
 			action: async () => {
-				await setTheme(plugin, undefined, catColor);
+				// Get current theme and apply with new accent
+				const isDarkMode = detectDarkMode();
+				const theme =
+					((await plugin.settings.getSetting(
+						isDarkMode ? "dark-theme" : "light-theme",
+					)) as string) || (isDarkMode ? "mocha" : "latte");
+				await setTheme(plugin, theme, catColor);
 			},
 		});
 	}
@@ -124,7 +84,12 @@ async function registerDebugCommands(plugin: ReactRNPlugin): Promise<void> {
 				variant.charAt(0).toUpperCase() + variant.slice(1)
 			}`,
 			action: async () => {
-				await setTheme(plugin, variant);
+				// Get current accent and apply with new theme
+				const accent =
+					((await plugin.settings.getSetting(
+						"accent-color",
+					)) as string) || "blue";
+				await setTheme(plugin, variant, accent);
 			},
 		});
 	}
@@ -162,7 +127,17 @@ async function registerDebugCommands(plugin: ReactRNPlugin): Promise<void> {
 		quickCode: "dumpcss",
 		description: "Dumps the CSS to the clipboard and console",
 		action: async () => {
-			const css = await setTheme(plugin);
+			const isDarkMode = detectDarkMode();
+			const theme =
+				((await plugin.settings.getSetting(
+					isDarkMode ? "dark-theme" : "light-theme",
+				)) as string) || (isDarkMode ? "mocha" : "latte");
+			const accent =
+				((await plugin.settings.getSetting(
+					"accent-color",
+				)) as string) || "blue";
+			const css = await setTheme(plugin, theme, accent);
+
 			plugin.app.toast("CSS dumped to clipboard and console");
 			console.log(css);
 
