@@ -6,9 +6,13 @@
  */
 
 import { declareIndexPlugin, RNPlugin } from "@remnote/plugin-sdk";
+import {
+	applyThemeByAppearance,
+	checkAndApplyTheme,
+	setTheme,
+} from "../theme/themeManager";
+import { cleanupDebugMode, setupDebugMode } from "../utils/debugUtils";
 import { registerPluginSettings } from "../utils/settingsManager";
-import { checkAndApplyTheme, setTheme, applyThemeByAppearance } from "../theme/themeManager";
-import { setupDebugMode, cleanupDebugMode } from "../utils/debugUtils";
 import { setupThemeDetection } from "../utils/themeDetection";
 import { detectDarkMode } from "../utils/themeUtils";
 
