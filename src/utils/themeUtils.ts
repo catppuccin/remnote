@@ -24,11 +24,8 @@ export function detectDarkMode(): boolean {
 	}
 
 	// Strategy: Check media query for system preference
-	if (
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: dark)").matches
-	) {
-		return true;
+	if (window.matchMedia) {
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
 	}
 
 	// Default to dark mode as fallback

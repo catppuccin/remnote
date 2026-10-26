@@ -39,10 +39,10 @@ export async function formTheme(
 	let palette = "";
 
 	// Validate the theme is a valid variant key
-	const themeKey = theme as ThemeVariant;
+	let themeKey = theme as ThemeVariant;
 	if (!variants[themeKey as keyof typeof variants]) {
 		console.error(`Invalid theme: ${theme}, defaulting to mocha`);
-		theme = "mocha";
+		themeKey = "mocha";
 	}
 
 	// Get the variant object for this theme
