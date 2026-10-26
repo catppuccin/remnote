@@ -8,7 +8,7 @@
 	"version": {
 		"major": 1,
 		"minor": 5,
-		"patch": 0
+		"patch": 1
 	},
 	"theme": ["light", "dark"],
 	"description": "☕ Customizable, soothing pastel colors for your notes — 4 selectable themes that completely recolor RemNote.",
